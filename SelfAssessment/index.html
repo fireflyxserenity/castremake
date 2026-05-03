@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAST Clinical — Mental Health & Wellbeing Program</title>
+  <meta name="description" content="CAST Clinical — a personalised 4-week mental health and wellbeing program. Answer a 5-minute check-in and receive a structured daily plan grounded in evidence-based practice." />
+  <meta property="og:title" content="CAST Clinical — Your Personalised Wellbeing Program" />
+  <meta property="og:description" content="A 5-minute check-in builds a personalised 4-week mental health plan matched to your conditions, schedule and goals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fireflyxserenity.github.io/castclinical/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="CAST Clinical — Your Personalised Wellbeing Program" />
+  <meta name="twitter:description" content="A 5-minute check-in builds a personalised 4-week mental health plan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="landing.css" />
+</head>
+<body>
+<script>if(localStorage.getItem('cast-theme')==='dark')document.body.classList.add('dark');</script>
+
+<!-- Aurora orbs — left side only -->
+<div class="aurora-layer" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ── HEADER ─────────────────────────────────────── -->
+<header>
+  <a class="logo" href="index.html" aria-label="CAST Clinical home">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <defs>
+          <linearGradient id="lm-grad-b" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2A9CC8"/>
+            <stop offset="100%" stop-color="#0ECFCF"/>
+          </linearGradient>
+        </defs>
+        <rect x="4" y="4" width="32" height="32" rx="7" ry="7" transform="rotate(45 20 20)" fill="url(#lm-grad-b)"/>
+        <rect x="7.5" y="7.5" width="25" height="25" rx="5.5" ry="5.5" transform="rotate(45 20 20)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+        <path d="M24.5 13.5 A8 8 0 1 0 24.5 26.5" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-title">CAST Clinical</span>
+      <span class="logo-sub">Mental Health · Wellbeing</span>
+    </div>
+  </a>
+
+  <div class="header-right">
+    <span class="header-badge">🔒 Confidential &amp; Secure</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+      <span class="toggle-icon icon-moon">🌙</span>
+      <span class="toggle-icon icon-sun">☀️</span>
+    </button>
+    <a class="header-cta" href="app.html">Begin Assessment →</a>
+  </div>
+</header>
+
+<!-- ── SPLIT HERO ─────────────────────────────────── -->
+<div class="split">
+
+  <!-- LEFT — Aurora light panel -->
+  <div class="panel-left">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      4-Week Wellbeing Program
+    </div>
+
+    <h1 class="headline">The mental health plan<br>that <em>fits your life.</em></h1>
+
+    <p class="subhead">A 5-minute check-in builds a personalised 4-week program — matched to your schedule, your conditions, and your comfort level.</p>
+
+    <div class="actions">
+      <a class="btn-primary" href="app.html">
+        Start my check-in
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="btn-outline" onclick="document.querySelector('.panel-right').scrollIntoView({behavior:'smooth'})">See how it works</button>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item">🔒 Private &amp; confidential</div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">⏱ Under 5 minutes</div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">📋 Evidence-based practice</div>
+    </div>
+
+    <div class="price-pill">
+      <div>
+        <div class="price-num">$200</div>
+        <div class="price-sub">4-week program · one-time</div>
+      </div>
+      <div class="price-rule"></div>
+      <div class="price-fund">💙 Funding may be available<br>for eligible participants</div>
+    </div>
+
+    <div class="proof-strip">
+      <div class="proof-item">
+        <div class="proof-val">4<span>wk</span></div>
+        <div class="proof-desc">Structured Program</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-val">5<span>min</span></div>
+        <div class="proof-desc">To Complete</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-val">100<span>%</span></div>
+        <div class="proof-desc">Confidential</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-val">28<span>+</span></div>
+        <div class="proof-desc">Focus Areas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT — Editorial dark panel -->
+  <div class="panel-right">
+    <div class="panel-label">Your journey · 3 steps</div>
+
+    <div class="step-cards">
+      <div class="step-card">
+        <div class="sc-num">01</div>
+        <div>
+          <div class="sc-title">About you</div>
+          <div class="sc-desc">Name, age, lifestyle &amp; how much time you have each day</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="sc-num">02</div>
+        <div>
+          <div class="sc-title">How you've been feeling</div>
+          <div class="sc-desc">Mood, anxiety, focus, sleep, anger — tick what feels familiar</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="sc-num">03</div>
+        <div>
+          <div class="sc-title">Habits &amp; preferences</div>
+          <div class="sc-desc">Substances, VR comfort, AI comfort — your preferences shape everything</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <div class="rc-icon">✦</div>
+      <div>
+        <div class="rc-title">Your personalised 4-week plan</div>
+        <div class="rc-desc">A day-by-day schedule built around your conditions, your schedule and your goals — including a certificate of completion at the end.</div>
+      </div>
+    </div>
+
+    <div class="panel-trust">
+      <div class="pt-item"><strong>🔒 Private</strong> — never shared without consent</div>
+      <div class="pt-item"><strong>🧠 Evidence-based</strong> — CBT, DBT, REBT, EFT</div>
+      <div class="pt-item"><strong>🥽 VR-ready</strong> — optional add-on</div>
+      <div class="pt-item"><strong>🤖 AI-assisted</strong> — if you're comfortable</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    if (!toggle) return;
+    // Sync with whatever theme was set in index.html (shared localStorage key)
+    if (localStorage.getItem('cast-theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+    toggle.addEventListener('click', function () {
+      document.body.classList.toggle('dark');
+      var isDark = document.body.classList.contains('dark');
+      localStorage.setItem('cast-theme', isDark ? 'dark' : 'light');
+    });
+  })();
+</script>
+
+</body>
+</html>

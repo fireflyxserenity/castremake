@@ -1,0 +1,93 @@
+/* =====================================================
+   CAST Clinical — Shared Base Styles
+   Used by: landing.html, index.html
+   ===================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── SHARED LOGO ───────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-mark svg { width: 38px; height: 38px; }
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+.logo-sub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2A9CC8;
+}
+
+/* ── SHARED THEME TOGGLE ───────────────────────────── */
+.theme-toggle {
+  width: 44px; height: 26px;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  transition: all .35s ease;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5B8C7A, #2A9CC8);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 6px rgba(42,156,200,.3);
+}
+
+body.dark .theme-toggle::after {
+  transform: translateX(18px);
+  background: linear-gradient(135deg, #2A9CC8, #0ECFCF);
+}
+
+.toggle-icon {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-size: 10px; pointer-events: none; transition: opacity .2s;
+  line-height: 1;
+}
+
+.icon-moon { right: 5px; opacity: 1; }
+.icon-sun  { left:  5px; opacity: 0; }
+
+body.dark .icon-moon { opacity: 0; }
+body.dark .icon-sun  { opacity: 1; }

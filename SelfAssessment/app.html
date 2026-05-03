@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAST Clinical – 4-Week Mental Health & Wellbeing Program</title>
+  <meta name="description" content="Complete your CAST Clinical triage assessment and receive a personalised 4-week mental health and wellbeing program — grounded in evidence-based practice." />
+  <meta property="og:title" content="CAST Clinical – Start Your Wellbeing Assessment" />
+  <meta property="og:description" content="A 5-minute check-in generates a personalised 4-week mental health plan matched to your conditions, schedule and goals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fireflyxserenity.github.io/castclinical/app.html" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<script>if(localStorage.getItem('cast-theme')==='dark')document.body.classList.add('dark');</script>
+
+<!-- Background FX layer -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+
+<!-- ── HEADER ──────────────────────────────────────── -->
+<header>
+  <a href="index.html" class="logo" style="text-decoration:none;">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <defs>
+          <linearGradient id="lm-grad-a" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2A9CC8"/>
+            <stop offset="100%" stop-color="#0ECFCF"/>
+          </linearGradient>
+        </defs>
+        <!-- Outer diamond -->
+        <rect x="4" y="4" width="32" height="32" rx="7" ry="7" transform="rotate(45 20 20)" fill="url(#lm-grad-a)"/>
+        <!-- Inner diamond ring -->
+        <rect x="7.5" y="7.5" width="25" height="25" rx="5.5" ry="5.5" transform="rotate(45 20 20)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+        <!-- C letterform -->
+        <path d="M24.5 13.5 A8 8 0 1 0 24.5 26.5" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-title">CAST Clinical</span>
+      <span class="logo-sub">Mental Health · Wellbeing</span>
+    </div>
+  </a>
+  <div class="header-right">
+    <span class="header-badge">🔒 Confidential &amp; Secure</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+      <span class="toggle-icon icon-moon">🌙</span>
+      <span class="toggle-icon icon-sun">☀️</span>
+    </button>
+  </div>
+</header>
+
+<!-- ── HERO ────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-eyebrow">4-Week Wellbeing Program</div>
+  <h1>A plan built around you, not a textbook</h1>
+  <p>Answer a few quick questions and we'll put together a personalised 4-week wellbeing program — grounded in evidence-based practice and built entirely around you.</p>
+  <div class="hero-steps">
+    <div class="hero-step">
+      <div class="hero-step-num">1</div>
+      <span class="hero-step-label">Personal Info</span>
+    </div>
+    <div class="hero-step-divider"></div>
+    <div class="hero-step">
+      <div class="hero-step-num">2</div>
+      <span class="hero-step-label">How You Feel</span>
+    </div>
+    <div class="hero-step-divider"></div>
+    <div class="hero-step">
+      <div class="hero-step-num">3</div>
+      <span class="hero-step-label">Habits & Use</span>
+    </div>
+    <div class="hero-step-divider"></div>
+    <div class="hero-step">
+      <div class="hero-step-num">4</div>
+      <span class="hero-step-label">Your Plan</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN ─────────────────────────────────────────── -->
+<div class="container">
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-header">
+      <span class="progress-label" id="progress-label">Step 1 of 3 — Personal Information</span>
+      <span class="progress-count" id="progress-count">33%</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-fill" style="width:33%"></div>
+    </div>
+  </div>
+
+  <!-- FORM SECTION -->
+  <div id="form-section">
+
+    <!-- ─── STEP 1: PERSONAL INFO ─────────────────── -->
+    <div class="step active" id="step-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5B8C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h2>About You</h2>
+          <p>Everything you share here is completely private and is only used to build your personal program.</p>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="form-field" id="field-firstName">
+              <label for="firstName">First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" placeholder="e.g. Alex" autocomplete="given-name" />
+              <span class="error-msg">Please enter your first name.</span>
+            </div>
+            <div class="form-field" id="field-lastName">
+              <label for="lastName">Last Name <span class="req">*</span></label>
+              <input type="text" id="lastName" placeholder="e.g. Morgan" autocomplete="family-name" />
+              <span class="error-msg">Please enter your last name.</span>
+            </div>
+            <div class="form-field" id="field-age">
+              <label for="age">Age <span class="req">*</span></label>
+              <input type="number" id="age" placeholder="e.g. 32" min="12" max="100" />
+              <span class="error-msg">Please enter a valid age (12–100).</span>
+            </div>
+            <div class="form-field" id="field-gender">
+              <label for="gender">Gender Identity <span class="req">*</span></label>
+              <select id="gender">
+                <option value="">— Select —</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Non-binary</option>
+                <option>Transgender Male</option>
+                <option>Transgender Female</option>
+                <option>Prefer not to say</option>
+                <option>Other</option>
+              </select>
+              <span class="error-msg">Please select an option.</span>
+            </div>
+            <div class="form-field span-2" id="field-email">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+              <span class="error-msg">Please enter a valid email address.</span>
+            </div>
+            <div class="form-field" id="field-referral">
+              <label for="referral">Referral Source</label>
+              <select id="referral">
+                <option value="">— Optional —</option>
+                <option>Self-referred</option>
+                <option>GP / Primary Care</option>
+                <option>Psychiatrist</option>
+                <option>Therapist / Counsellor</option>
+                <option>Family / Friend</option>
+                <option>Online Search</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field span-2" id="field-support">
+              <label>Current Support Level <span class="field-hint-inline">(select all that apply)</span></label>
+              <div class="check-grid check-grid-support" id="support-checks">
+                <div class="check-item"><input type="checkbox" id="sup-none" name="support" value="No current support"><label class="check-label" for="sup-none"><span class="check-box"></span>No current support</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-gp" name="support" value="Seeing a GP"><label class="check-label" for="sup-gp"><span class="check-box"></span>Seeing a GP</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-therapy" name="support" value="In therapy"><label class="check-label" for="sup-therapy"><span class="check-box"></span>In therapy</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-meds" name="support" value="On medication"><label class="check-label" for="sup-meds"><span class="check-box"></span>On medication</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-psych" name="support" value="Seeing a psychiatrist"><label class="check-label" for="sup-psych"><span class="check-box"></span>Seeing a psychiatrist</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-inpatient" name="support" value="Inpatient / Residential"><label class="check-label" for="sup-inpatient"><span class="check-box"></span>Inpatient / Residential</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-peer" name="support" value="Peer support group"><label class="check-label" for="sup-peer"><span class="check-box"></span>Peer support group</label></div>
+                <div class="check-item"><input type="checkbox" id="sup-crisis" name="support" value="Crisis / emergency services"><label class="check-label" for="sup-crisis"><span class="check-box"></span>Crisis / emergency services</label></div>
+              </div>
+            </div>
+            <div class="form-field" id="field-workStatus">
+              <label for="workStatus">Employment / Study Status <span class="req">*</span></label>
+              <select id="workStatus">
+                <option value="">— Select —</option>
+                <option value="fulltime">Employed full-time (35+ hrs/week)</option>
+                <option value="parttime">Employed part-time (15–34 hrs/week)</option>
+                <option value="casual">Casual / freelance / shift work</option>
+                <option value="student">Full-time student</option>
+                <option value="student-part">Part-time student</option>
+                <option value="carer">Full-time carer / homemaker</option>
+                <option value="unemployed">Not currently employed</option>
+                <option value="retired">Retired</option>
+              </select>
+              <span class="error-msg">Please select your employment status.</span>
+            </div>
+            <div class="form-field" id="field-therapyTime">
+              <label for="therapyTime">Time available for wellbeing each day <span class="req">*</span></label>
+              <select id="therapyTime">
+                <option value="">— Select —</option>
+                <option value="15">Up to 15 minutes</option>
+                <option value="30">About 30 minutes</option>
+                <option value="60">About 1 hour</option>
+                <option value="90">1–2 hours</option>
+                <option value="120">2+ hours</option>
+              </select>
+              <span class="error-msg">Please select your available time.</span>
+            </div>
+            <div class="form-field span-2">
+              <label for="therapyDays">Days per week you can commit to structured activities</label>
+              <div class="day-picker" id="therapyDays">
+                <button type="button" class="day-btn" data-day="Mon">Mon</button>
+                <button type="button" class="day-btn" data-day="Tue">Tue</button>
+                <button type="button" class="day-btn" data-day="Wed">Wed</button>
+                <button type="button" class="day-btn" data-day="Thu">Thu</button>
+                <button type="button" class="day-btn" data-day="Fri">Fri</button>
+                <button type="button" class="day-btn" data-day="Sat">Sat</button>
+                <button type="button" class="day-btn" data-day="Sun">Sun</button>
+              </div>
+              <span class="field-hint">Select all days that apply — your weekly plan will be built around these.</span>
+            </div>
+            <div class="form-field span-2" id="field-startDate">
+              <label>When would you like to start your program? <span class="req">*</span></label>
+              <div class="start-date-picker" id="startDatePicker"></div>
+              <span class="field-hint">Choose any day in the next 7 days that feels right for you.</span>
+              <span class="error-msg" id="startDate-error">Please choose a start date.</span>
+            </div>
+            <div class="form-field span-2" id="field-reminders">
+              <label>Would you like reminders for your program?</label>
+              <div class="reminder-toggle-row">
+                <button type="button" class="reminder-toggle-btn selected" id="remYes" onclick="setReminder(true)">Yes please</button>
+                <button type="button" class="reminder-toggle-btn" id="remNo" onclick="setReminder(false)">No thanks</button>
+              </div>
+              <div id="reminder-details">
+                <span class="field-hint" style="display:block;margin:12px 0 10px;">How would you like to be reminded?</span>
+                <div class="reminder-method-row">
+                  <label class="reminder-method-card">
+                    <input type="checkbox" id="remByEmail" name="reminderMethod" value="email" onchange="updateReminderFields()" checked>
+                    <span class="rmc-inner">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                      Email
+                    </span>
+                  </label>
+                  <label class="reminder-method-card">
+                    <input type="checkbox" id="remByText" name="reminderMethod" value="text" onchange="updateReminderFields()">
+                    <span class="rmc-inner">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.06 6.06l1.06-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                      Text / SMS
+                    </span>
+                  </label>
+                </div>
+                <div id="reminder-email-row" class="form-field" style="margin-top:12px;">
+                  <label>Email for reminders</label>
+                  <input type="email" id="reminderEmail" placeholder="Pre-filled from above" />
+                  <span class="field-hint">We'll use the email you entered above — update it here if you prefer a different address.</span>
+                </div>
+                <div id="reminder-phone-row" class="form-field" style="margin-top:12px;display:none;">
+                  <label>Mobile number for text reminders</label>
+                  <input type="tel" id="reminderPhone" placeholder="e.g. 0412 345 678" autocomplete="tel" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span></span>
+          <button class="btn btn-primary" onclick="nextStep(1)">
+            Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── STEP 2: MENTAL HEALTH HISTORY ────────── -->
+    <div class="step" id="step-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5B8C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.98-3.006 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.96-3.192A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.98-3.006 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.96-3.192A2.5 2.5 0 0 0 14.5 2Z"/>
+            </svg>
+          </div>
+          <h2>How Have You Been Feeling?</h2>
+          <p>Tick anything that sounds like you — whether you've had a formal diagnosis or just recognise the pattern. You can select as many as you like.</p>
+        </div>
+        <div class="card-body">
+
+          <!-- Mood Disorders -->
+          <div class="section-title">Mood &amp; Emotions</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="mdd" name="mental" value="Major Depressive Disorder (MDD)"><label class="check-label" for="mdd"><span class="check-box"></span>Major Depression (MDD)</label></div>
+            <div class="check-item"><input type="checkbox" id="bipolar1" name="mental" value="Bipolar I Disorder"><label class="check-label" for="bipolar1"><span class="check-box"></span>Bipolar I</label></div>
+            <div class="check-item"><input type="checkbox" id="bipolar2" name="mental" value="Bipolar II Disorder"><label class="check-label" for="bipolar2"><span class="check-box"></span>Bipolar II</label></div>
+            <div class="check-item"><input type="checkbox" id="dysthymia" name="mental" value="Persistent Depressive Disorder (Dysthymia)"><label class="check-label" for="dysthymia"><span class="check-box"></span>Persistent Depression</label></div>
+            <div class="check-item"><input type="checkbox" id="cyclothymia" name="mental" value="Cyclothymic Disorder"><label class="check-label" for="cyclothymia"><span class="check-box"></span>Cyclothymia</label></div>
+            <div class="check-item"><input type="checkbox" id="pmdd" name="mental" value="PMDD"><label class="check-label" for="pmdd"><span class="check-box"></span>PMDD</label></div>
+          </div>
+
+          <!-- Anxiety Disorders -->
+          <div class="section-title">Anxiety &amp; Stress</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="gad" name="mental" value="Generalised Anxiety Disorder (GAD)"><label class="check-label" for="gad"><span class="check-box"></span>Generalised Anxiety (GAD)</label></div>
+            <div class="check-item"><input type="checkbox" id="panic" name="mental" value="Panic Disorder"><label class="check-label" for="panic"><span class="check-box"></span>Panic Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="social-anx" name="mental" value="Social Anxiety Disorder"><label class="check-label" for="social-anx"><span class="check-box"></span>Social Anxiety</label></div>
+            <div class="check-item"><input type="checkbox" id="phobia" name="mental" value="Specific Phobia"><label class="check-label" for="phobia"><span class="check-box"></span>Specific Phobia</label></div>
+            <div class="check-item"><input type="checkbox" id="ptsd" name="mental" value="PTSD"><label class="check-label" for="ptsd"><span class="check-box"></span>PTSD</label></div>
+            <div class="check-item"><input type="checkbox" id="cptsd" name="mental" value="Complex PTSD (C-PTSD)"><label class="check-label" for="cptsd"><span class="check-box"></span>Complex PTSD (C-PTSD)</label></div>
+            <div class="check-item"><input type="checkbox" id="acute-stress" name="mental" value="Acute Stress Disorder"><label class="check-label" for="acute-stress"><span class="check-box"></span>Acute Stress Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="agoraphobia" name="mental" value="Agoraphobia"><label class="check-label" for="agoraphobia"><span class="check-box"></span>Agoraphobia</label></div>
+          </div>
+
+          <!-- Neurodevelopmental -->
+          <div class="section-title">Focus, Attention &amp; Learning</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="adhd-i" name="mental" value="ADHD – Inattentive Type"><label class="check-label" for="adhd-i"><span class="check-box"></span>ADHD – Inattentive</label></div>
+            <div class="check-item"><input type="checkbox" id="adhd-h" name="mental" value="ADHD – Hyperactive/Combined"><label class="check-label" for="adhd-h"><span class="check-box"></span>ADHD – Hyperactive/Combined</label></div>
+            <div class="check-item"><input type="checkbox" id="autism" name="mental" value="Autism Spectrum (ASD)"><label class="check-label" for="autism"><span class="check-box"></span>Autism Spectrum (ASD)</label></div>
+            <div class="check-item"><input type="checkbox" id="dyslexia" name="mental" value="Dyslexia / Learning Differences"><label class="check-label" for="dyslexia"><span class="check-box"></span>Dyslexia / Learning Diff.</label></div>
+          </div>
+
+          <!-- OCD & Related -->
+          <div class="section-title">Repetitive Thoughts &amp; Urges</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="ocd" name="mental" value="OCD"><label class="check-label" for="ocd"><span class="check-box"></span>OCD</label></div>
+            <div class="check-item"><input type="checkbox" id="bdd" name="mental" value="Body Dysmorphic Disorder (BDD)"><label class="check-label" for="bdd"><span class="check-box"></span>Body Dysmorphia (BDD)</label></div>
+            <div class="check-item"><input type="checkbox" id="hoarding" name="mental" value="Hoarding Disorder"><label class="check-label" for="hoarding"><span class="check-box"></span>Hoarding Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="trichotillo" name="mental" value="Trichotillomania (Hair Pulling)"><label class="check-label" for="trichotillo"><span class="check-box"></span>Trichotillomania</label></div>
+          </div>
+
+          <!-- Psychotic & Personality -->
+          <div class="section-title">Personality &amp; Identity</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="schizo" name="mental" value="Schizophrenia"><label class="check-label" for="schizo"><span class="check-box"></span>Schizophrenia</label></div>
+            <div class="check-item"><input type="checkbox" id="schizoaff" name="mental" value="Schizoaffective Disorder"><label class="check-label" for="schizoaff"><span class="check-box"></span>Schizoaffective Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="bpd" name="mental" value="Borderline Personality Disorder (BPD)"><label class="check-label" for="bpd"><span class="check-box"></span>BPD</label></div>
+            <div class="check-item"><input type="checkbox" id="narcissistic" name="mental" value="Narcissistic PD"><label class="check-label" for="narcissistic"><span class="check-box"></span>Narcissistic PD</label></div>
+            <div class="check-item"><input type="checkbox" id="avpd" name="mental" value="Avoidant Personality Disorder"><label class="check-label" for="avpd"><span class="check-box"></span>Avoidant PD</label></div>
+            <div class="check-item"><input type="checkbox" id="aspd" name="mental" value="Antisocial Personality Disorder"><label class="check-label" for="aspd"><span class="check-box"></span>Antisocial PD</label></div>
+          </div>
+
+          <!-- Anger & Impulse Control -->
+          <div class="section-title">Anger &amp; Impulse Control</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="anger-mgmt" name="mental" value="Anger Management"><label class="check-label" for="anger-mgmt"><span class="check-box"></span>Anger Management</label></div>
+            <div class="check-item"><input type="checkbox" id="ied" name="mental" value="Intermittent Explosive Disorder (IED)"><label class="check-label" for="ied"><span class="check-box"></span>Intermittent Explosive Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="impulse" name="mental" value="Impulse Control Difficulties"><label class="check-label" for="impulse"><span class="check-box"></span>Impulse Control Difficulties</label></div>
+          </div>
+
+          <!-- Eating & Somatic -->
+          <div class="section-title">Eating, Body Image &amp; Other</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="anorexia" name="mental" value="Anorexia Nervosa"><label class="check-label" for="anorexia"><span class="check-box"></span>Anorexia Nervosa</label></div>
+            <div class="check-item"><input type="checkbox" id="bulimia" name="mental" value="Bulimia Nervosa"><label class="check-label" for="bulimia"><span class="check-box"></span>Bulimia Nervosa</label></div>
+            <div class="check-item"><input type="checkbox" id="binge-eat" name="mental" value="Binge Eating Disorder"><label class="check-label" for="binge-eat"><span class="check-box"></span>Binge Eating Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="dissoc" name="mental" value="Dissociative Disorders"><label class="check-label" for="dissoc"><span class="check-box"></span>Dissociative Disorders</label></div>
+            <div class="check-item"><input type="checkbox" id="insomnia" name="mental" value="Insomnia / Sleep Disorder"><label class="check-label" for="insomnia"><span class="check-box"></span>Insomnia / Sleep Disorder</label></div>
+            <div class="check-item"><input type="checkbox" id="somatic" name="mental" value="Somatic Symptom Disorder"><label class="check-label" for="somatic"><span class="check-box"></span>Somatic Symptom Disorder</label></div>
+          </div>
+
+          <!-- Severity -->
+          <div class="section-title" style="margin-top:8px;">How Much Does This Affect Your Day-to-Day Life?</div>
+          <div class="severity-grid">
+            <div class="severity-item">
+              <label>How low or unstable is your mood?</label>
+              <div class="scale-buttons" id="mood-severity">
+                <button class="scale-btn" onclick="selectScale(this,'mood-severity')">1</button>
+                <button class="scale-btn" onclick="selectScale(this,'mood-severity')">2</button>
+                <button class="scale-btn" onclick="selectScale(this,'mood-severity')">3</button>
+                <button class="scale-btn" onclick="selectScale(this,'mood-severity')">4</button>
+                <button class="scale-btn" onclick="selectScale(this,'mood-severity')">5</button>
+              </div>
+              <div class="scale-legend"><span>Mild</span><span>Severe</span></div>
+            </div>
+            <div class="severity-item">
+              <label>How anxious do you feel day to day?</label>
+              <div class="scale-buttons" id="anx-severity">
+                <button class="scale-btn" onclick="selectScale(this,'anx-severity')">1</button>
+                <button class="scale-btn" onclick="selectScale(this,'anx-severity')">2</button>
+                <button class="scale-btn" onclick="selectScale(this,'anx-severity')">3</button>
+                <button class="scale-btn" onclick="selectScale(this,'anx-severity')">4</button>
+                <button class="scale-btn" onclick="selectScale(this,'anx-severity')">5</button>
+              </div>
+              <div class="scale-legend"><span>Mild</span><span>Severe</span></div>
+            </div>
+            <div class="severity-item">
+              <label>Does this affect work or daily tasks?</label>
+              <div class="scale-buttons" id="func-severity">
+                <button class="scale-btn" onclick="selectScale(this,'func-severity')">1</button>
+                <button class="scale-btn" onclick="selectScale(this,'func-severity')">2</button>
+                <button class="scale-btn" onclick="selectScale(this,'func-severity')">3</button>
+                <button class="scale-btn" onclick="selectScale(this,'func-severity')">4</button>
+                <button class="scale-btn" onclick="selectScale(this,'func-severity')">5</button>
+              </div>
+              <div class="scale-legend"><span>Minimal</span><span>Severe</span></div>
+            </div>
+            <div class="severity-item">
+              <label>How well are you sleeping?</label>
+              <div class="scale-buttons" id="sleep-severity">
+                <button class="scale-btn" onclick="selectScale(this,'sleep-severity')">1</button>
+                <button class="scale-btn" onclick="selectScale(this,'sleep-severity')">2</button>
+                <button class="scale-btn" onclick="selectScale(this,'sleep-severity')">3</button>
+                <button class="scale-btn" onclick="selectScale(this,'sleep-severity')">4</button>
+                <button class="scale-btn" onclick="selectScale(this,'sleep-severity')">5</button>
+              </div>
+              <div class="scale-legend"><span>Good</span><span>Very Poor</span></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-secondary" onclick="prevStep(2)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+          <button class="btn btn-primary" onclick="nextStep(2)">
+            Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── STEP 3: SUBSTANCE / ADDICTION ────────── -->
+    <div class="step" id="step-3">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5B8C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2h4"/><path d="M9.5 7.5A7 7 0 0 1 19 14a7 7 0 0 1-7 7A7 7 0 0 1 5 14a7 7 0 0 1 4.5-6.5"/><path d="M12 11v3l1.5 1.5"/>
+            </svg>
+          </div>
+          <h2>Habits &amp; Substance Use</h2>
+          <p>This is a safe space — nothing you share here is judged. Select anything that applies so we can include the right support in your program.</p>
+        </div>
+        <div class="card-body">
+
+          <div class="section-title">Substances You Use or Have Used</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="alcohol" name="addiction" value="Alcohol Use Disorder"><label class="check-label" for="alcohol"><span class="check-box"></span>Alcohol</label></div>
+            <div class="check-item"><input type="checkbox" id="cannabis" name="addiction" value="Cannabis Use Disorder"><label class="check-label" for="cannabis"><span class="check-box"></span>Cannabis</label></div>
+            <div class="check-item"><input type="checkbox" id="stimulants" name="addiction" value="Stimulant Use (Cocaine / Meth)"><label class="check-label" for="stimulants"><span class="check-box"></span>Stimulants (Cocaine / Meth)</label></div>
+            <div class="check-item"><input type="checkbox" id="opioids" name="addiction" value="Opioid Use Disorder"><label class="check-label" for="opioids"><span class="check-box"></span>Opioids</label></div>
+            <div class="check-item"><input type="checkbox" id="benzos" name="addiction" value="Benzodiazepine Dependence"><label class="check-label" for="benzos"><span class="check-box"></span>Benzodiazepines</label></div>
+            <div class="check-item"><input type="checkbox" id="nicotine" name="addiction" value="Nicotine / Tobacco Use"><label class="check-label" for="nicotine"><span class="check-box"></span>Nicotine / Tobacco</label></div>
+            <div class="check-item"><input type="checkbox" id="mdma" name="addiction" value="MDMA / Ecstasy Use"><label class="check-label" for="mdma"><span class="check-box"></span>MDMA / Ecstasy</label></div>
+            <div class="check-item"><input type="checkbox" id="hallucinogens" name="addiction" value="Hallucinogen Use"><label class="check-label" for="hallucinogens"><span class="check-box"></span>Hallucinogens</label></div>
+            <div class="check-item"><input type="checkbox" id="rx-misuse" name="addiction" value="Prescription Drug Misuse"><label class="check-label" for="rx-misuse"><span class="check-box"></span>Prescription Drug Misuse</label></div>
+            <div class="check-item"><input type="checkbox" id="poly-sub" name="addiction" value="Polysubstance Use"><label class="check-label" for="poly-sub"><span class="check-box"></span>Polysubstance Use</label></div>
+          </div>
+
+          <div class="section-title" style="margin-top:8px;">Other Habits &amp; Patterns</div>
+          <div class="check-grid">
+            <div class="check-item"><input type="checkbox" id="gambling" name="addiction" value="Gambling Disorder"><label class="check-label" for="gambling"><span class="check-box"></span>Gambling</label></div>
+            <div class="check-item"><input type="checkbox" id="gaming" name="addiction" value="Gaming / Internet Addiction"><label class="check-label" for="gaming"><span class="check-box"></span>Gaming / Internet</label></div>
+            <div class="check-item"><input type="checkbox" id="sex-addict" name="addiction" value="Compulsive Sexual Behaviour"><label class="check-label" for="sex-addict"><span class="check-box"></span>Compulsive Sexual Behaviour</label></div>
+            <div class="check-item"><input type="checkbox" id="food-addict" name="addiction" value="Food / Binge Eating Addiction"><label class="check-label" for="food-addict"><span class="check-box"></span>Food / Binge Eating</label></div>
+            <div class="check-item"><input type="checkbox" id="shopping" name="addiction" value="Compulsive Shopping / Spending"><label class="check-label" for="shopping"><span class="check-box"></span>Compulsive Shopping</label></div>
+            <div class="check-item"><input type="checkbox" id="social-media" name="addiction" value="Social Media Addiction"><label class="check-label" for="social-media"><span class="check-box"></span>Social Media</label></div>
+          </div>
+
+          <div class="section-title" style="margin-top:8px;">Where Are You Right Now?</div>
+          <div class="radio-row">
+            <div class="radio-item"><input type="radio" name="recovery-status" id="rs-active" value="Currently using"><label class="radio-label" for="rs-active">Still using</label></div>
+            <div class="radio-item"><input type="radio" name="recovery-status" id="rs-early" value="Early recovery (< 1 year)"><label class="radio-label" for="rs-early">Early in recovery (&lt;1 yr)</label></div>
+            <div class="radio-item"><input type="radio" name="recovery-status" id="rs-sustained" value="Sustained recovery (1+ years)"><label class="radio-label" for="rs-sustained">Going strong (1+ yrs)</label></div>
+            <div class="radio-item"><input type="radio" name="recovery-status" id="rs-na" value="Not applicable"><label class="radio-label" for="rs-na">Not applicable to me</label></div>
+          </div>
+
+          <div class="section-title" style="margin-top:8px;">Virtual Reality Therapy</div>
+          <p style="font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:14px;">VR therapy is an emerging evidence-based modality for anxiety, phobias, PTSD and social skills training. Please indicate your current access and comfort with VR.</p>
+          <div class="vr-cards" id="vr-cards">
+            <div class="radio-item">
+              <input type="radio" name="vr-pref" id="vr-have" value="have">
+              <label class="radio-label vr-card-label" for="vr-have">
+                <span class="vr-icon">🥽</span>
+                <span class="vr-card-text">
+                  <strong>I already own a VR headset</strong>
+                  <span>I have a headset and am open to using VR-based therapy exercises.</span>
+                </span>
+              </label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" name="vr-pref" id="vr-planning" value="planning">
+              <label class="radio-label vr-card-label" for="vr-planning">
+                <span class="vr-icon">🛒</span>
+                <span class="vr-card-text">
+                  <strong>I'm planning to get a VR headset</strong>
+                  <span>I'm interested in VR therapy and intend to acquire a headset soon.</span>
+                </span>
+              </label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" name="vr-pref" id="vr-no" value="no">
+              <label class="radio-label vr-card-label" for="vr-no">
+                <span class="vr-icon">📱</span>
+                <span class="vr-card-text">
+                  <strong>I prefer phone / web-based therapy</strong>
+                  <span>I'm not comfortable with VR or do not wish to use it — please recommend phone or web alternatives only.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="section-title" style="margin-top:24px;">Comfort with AI-Assisted Therapy</div>
+          <p style="font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:14px;">Some components of your plan may involve AI-powered tools (e.g. chatbot check-ins, mood tracking apps, AI journalling). Please indicate how comfortable you are with this.</p>
+          <div class="radio-row">
+            <div class="radio-item"><input type="radio" name="ai-comfort" id="ai-none" value="none"><label class="radio-label" for="ai-none">Not comfortable</label></div>
+            <div class="radio-item"><input type="radio" name="ai-comfort" id="ai-some" value="some"><label class="radio-label" for="ai-some">Somewhat comfortable</label></div>
+            <div class="radio-item"><input type="radio" name="ai-comfort" id="ai-ok" value="ok"><label class="radio-label" for="ai-ok">Comfortable</label></div>
+            <div class="radio-item"><input type="radio" name="ai-comfort" id="ai-keen" value="keen"><label class="radio-label" for="ai-keen">Very comfortable / excited</label></div>
+          </div>
+
+          <div class="section-title">What Would You Most Like Help With?</div>
+          <div class="form-grid full">
+            <div class="form-field">
+              <label for="goals">In your own words, what are you hoping to feel or do differently?</label>
+              <textarea id="goals" placeholder="e.g. Feel less anxious, sleep better, cut back on drinking, get back into a routine..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-secondary" onclick="prevStep(3)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+          <button class="btn btn-primary" onclick="generatePlan()">
+            Generate My Plan
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /form-section -->
+
+  <!-- ─── TREATMENT PLAN ──────────────────────────── -->
+  <div class="card" id="plan-card">
+    <div class="plan-hero">
+      <div class="plan-greeting">Your personalised care plan</div>
+      <h2 id="plan-name">Good morning, —</h2>
+      <p id="plan-intro">Based on your triage responses, we have prepared a structured daily treatment plan to support your wellbeing journey.</p>
+      <div class="plan-date">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span id="plan-date-label"></span>
+      </div>
+    </div>
+    <div class="plan-body">
+
+      <!-- Crisis support banner (shown dynamically for high-risk responses) -->
+      <div class="crisis-banner" id="crisis-banner">
+        <div class="crisis-banner-icon">🚨</div>
+        <div class="crisis-banner-body">
+          <strong>Your responses suggest you may benefit from immediate professional support.</strong>
+          This plan is a self-guided resource and works best alongside — not instead of — clinical care. Please reach out to a clinician before starting.
+          <div class="crisis-lines">
+            <span>🇦🇺 Lifeline: <a href="tel:131114">13 11 14</a></span>
+            <span>🇦🇺 Mental Health Line: <a href="tel:1800011511">1800 011 511</a></span>
+            <span>🇺🇸 988 Lifeline: <a href="tel:988">988</a></span>
+            <span>🇬🇧 Samaritans: <a href="tel:116123">116 123</a></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diagnoses summary -->
+      <div class="section-title">Your Focus Areas</div>
+      <div class="plan-diagnoses" id="plan-diagnoses"></div>
+
+      <!-- Weekly summary bar -->
+      <div class="plan-summary-bar" id="plan-summary-bar"></div>
+
+      <!-- 4-week program overview -->
+      <div class="section-title">Your 4-Week Program Overview</div>
+      <div class="four-week-grid" id="four-week-grid"></div>
+
+      <!-- Week 1 schedule -->
+      <div class="section-title" style="margin-top:32px;">Week 1 Daily Schedule <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:12px;color:var(--muted);">&nbsp;— your starting point</span></div>
+      <p style="font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:20px;">This is your starting routine for Week 1. Each week builds on the last — progressing from foundation skills through to deeper practice and long-term integration. Therapy can be woven in as an optional add-on at any stage.</p>
+      <div class="week-grid" id="plan-timeline"></div>
+
+      <!-- Resources -->
+      <div class="section-title" style="margin-top:8px;">Helpful Resources</div>
+      <div class="resources-grid" id="plan-resources"></div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>Important:</strong> This plan is a supportive guide generated from your self-reported triage responses. It is <strong>not</strong> a clinical diagnosis or a substitute for professional medical or psychiatric care. Please share this plan with your treating clinician. If you are in crisis or at risk of harm, please call <strong>000</strong> (AU) · <strong>999</strong> (UK) · <strong>911</strong> (US) or contact the <strong>Lifeline: 13 11 14</strong>.</p>
+      </div>
+
+      <!-- Completion Certificate -->
+      <div class="certificate-wrap" id="plan-certificate">
+        <div class="certificate-inner">
+          <div class="cert-logo">CAST Clinical</div>
+          <div class="cert-eyebrow">4-Week Wellbeing Program</div>
+          <h2 class="cert-name" id="cert-name-display"></h2>
+          <p class="cert-body">has received a personalised CAST Clinical 4-Week Wellbeing Plan — an evidence-based program built around their self-reported focus areas. Present this document to your treating clinician upon completing the program.</p>
+          <div class="cert-meta">
+            <div class="cert-meta-item"><span class="cert-meta-label">Date Issued</span><span class="cert-meta-value" id="cert-date-display"></span></div>
+            <div class="cert-meta-divider"></div>
+            <div class="cert-meta-item"><span class="cert-meta-label">Program</span><span class="cert-meta-value">4-Week Wellbeing</span></div>
+            <div class="cert-meta-divider"></div>
+            <div class="cert-meta-item"><span class="cert-meta-label">Certificate No.</span><span class="cert-meta-value" id="cert-id-display"></span></div>
+          </div>
+          <div class="cert-seal">✦</div>
+        </div>
+      </div>
+
+      <!-- Parenting Certificate Teaser -->
+      <div class="parenting-teaser">
+        <div class="parenting-teaser-icon">👶</div>
+        <div>
+          <div class="parenting-teaser-title">Parenting Certificate — Coming Soon</div>
+          <p class="parenting-teaser-body">On completion of your treatment plan, you may be eligible to continue with a <strong>CAST Clinical Parenting Certificate</strong> — a structured parenting skills program. This pathway is currently in development and will be available soon. Enrolled participants will be notified when it launches.</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="plan-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / Save as PDF
+        </button>
+        <a class="btn btn-secondary" id="email-plan-btn" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email to myself
+        </a>
+        <button class="btn btn-secondary" onclick="startOver()">Start a New Assessment</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  // ─── STATE ──────────────────────────────────────────
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  // ─── PROGRESS ───────────────────────────────────────
+  function updateProgress(step) {
+    const pct = Math.round((step / totalSteps) * 100);
+    const labels = ['', 'Personal Information', 'Mental Health History', 'Substance Use & Addiction'];
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = `Step ${step} of ${totalSteps} — ${labels[step]}`;
+    document.getElementById('progress-count').textContent = pct + '%';
+  }
+
+  // ─── DAY PICKER ─────────────────────────────────────
+  document.querySelectorAll('.day-btn').forEach(btn => {
+    btn.addEventListener('click', () => btn.classList.toggle('selected'));
+  });
+
+  // ─── START DATE PICKER ───────────────────────────────
+  (function buildStartDatePicker() {
+    const container = document.getElementById('startDatePicker');
+    if (!container) return;
+    const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const today = new Date();
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() + i);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'start-date-btn';
+      btn.dataset.date = d.toISOString().slice(0, 10);
+      btn.innerHTML = `<span class="sd-day">${i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : dayNames[d.getDay()]}</span><span class="sd-date">${d.getDate()} ${monthNames[d.getMonth()]}</span>`;
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.start-date-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('startDate-error').style.display = 'none';
+      });
+      container.appendChild(btn);
+    }
+  })();
+
+  // ─── REMINDER TOGGLE ─────────────────────────────────
+  function setReminder(val) {
+    document.getElementById('remYes').classList.toggle('selected', val);
+    document.getElementById('remNo').classList.toggle('selected', !val);
+    document.getElementById('reminder-details').style.display = val ? '' : 'none';
+  }
+
+  function updateReminderFields() {
+    const byEmail = document.getElementById('remByEmail').checked;
+    const byText  = document.getElementById('remByText').checked;
+    document.getElementById('reminder-email-row').style.display = byEmail ? '' : 'none';
+    document.getElementById('reminder-phone-row').style.display = byText  ? '' : 'none';
+  }
+
+  // Pre-fill reminder email when main email field is changed
+  document.getElementById('email').addEventListener('input', function() {
+    const re = document.getElementById('reminderEmail');
+    if (re && !re.dataset.edited) re.value = this.value;
+  });
+  document.getElementById('reminderEmail').addEventListener('input', function() {
+    this.dataset.edited = '1';
+  });
+
+  // ─── SCALE BUTTONS ───────────────────────────────────
+  function selectScale(btn, groupId) {
+    document.querySelectorAll(`#${groupId} .scale-btn`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // ─── VALIDATION ─────────────────────────────────────
+  function validateStep1() {
+    let ok = true;
+    const fields = [
+      { id: 'firstName', wrap: 'field-firstName', test: v => v.trim().length >= 1 },
+      { id: 'lastName',  wrap: 'field-lastName',  test: v => v.trim().length >= 1 },
+      { id: 'age',       wrap: 'field-age',        test: v => v && +v >= 12 && +v <= 100 },
+      { id: 'gender',    wrap: 'field-gender',     test: v => v !== '' },
+      { id: 'email',      wrap: 'field-email',      test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'workStatus',  wrap: 'field-workStatus',  test: v => v !== '' },
+      { id: 'therapyTime', wrap: 'field-therapyTime', test: v => v !== '' },
+    ];
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const wrap = document.getElementById(f.wrap);
+      const msg = wrap.querySelector('.error-msg');
+      if (!f.test(el.value)) {
+        wrap.classList.add('field-error');
+        if (msg) msg.style.display = 'block';
+        ok = false;
+      } else {
+        wrap.classList.remove('field-error');
+        if (msg) msg.style.display = 'none';
+      }
+    });
+    // Validate start date
+    const startDateSelected = document.querySelector('.start-date-btn.selected');
+    if (!startDateSelected) {
+      document.getElementById('startDate-error').style.display = 'block';
+      ok = false;
+    }
+    return ok;
+  }
+
+  // ─── NAVIGATION ─────────────────────────────────────
+  function nextStep(from) {
+    if (from === 1 && !validateStep1()) return;
+    document.getElementById(`step-${from}`).classList.remove('active');
+    currentStep = from + 1;
+    document.getElementById(`step-${currentStep}`).classList.add('active');
+    updateProgress(currentStep);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function prevStep(from) {
+    document.getElementById(`step-${from}`).classList.remove('active');
+    currentStep = from - 1;
+    document.getElementById(`step-${currentStep}`).classList.add('active');
+    updateProgress(currentStep);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ─── PLAN GENERATION ────────────────────────────────
+  function generatePlan() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const workStatus    = document.getElementById('workStatus').value;
+    const therapyMins   = parseInt(document.getElementById('therapyTime').value) || 30;
+    const selectedDays  = [...document.querySelectorAll('.day-btn.selected')].map(b => b.dataset.day);
+    const activeDays    = selectedDays.length > 0 ? selectedDays : ['Mon','Tue','Wed','Thu','Fri'];
+    const mentalChecks   = [...document.querySelectorAll('input[name="mental"]:checked')].map(c => c.value);
+    const addictionChecks = [...document.querySelectorAll('input[name="addiction"]:checked')].map(c => c.value);
+    const recoveryStatus = (document.querySelector('input[name="recovery-status"]:checked') || {}).value || '';
+    // Work & time helpers
+    const isFullTime  = workStatus === 'fulltime' || workStatus === 'student';
+    const isPartTime  = workStatus === 'parttime' || workStatus === 'casual' || workStatus === 'student-part';
+    const isCarer     = workStatus === 'carer';
+    const hasFreeTime = workStatus === 'unemployed' || workStatus === 'retired' || isCarer;
+    const timeLabel   = therapyMins <= 15 ? 'micro (≤15 min)' : therapyMins <= 30 ? 'brief (30 min)' : therapyMins <= 60 ? 'moderate (1 hr)' : 'extended (1–2+ hrs)';
+    const daysLabel   = activeDays.join(', ');
+    const vrPref    = (document.querySelector('input[name="vr-pref"]:checked') || {}).value || '';
+    const aiComfort = (document.querySelector('input[name="ai-comfort"]:checked') || {}).value || '';
+    const vrHave     = vrPref === 'have';
+    const vrPlanning = vrPref === 'planning';
+    const vrNo       = vrPref === 'no';
+    const vrReady    = vrHave || vrPlanning;
+    const aiOk       = aiComfort === 'ok' || aiComfort === 'keen';
+    const aiSome     = aiComfort === 'some';
+    const aiNone     = aiComfort === 'none';
+    const moodSev  = (document.querySelector('#mood-severity .active') || {}).textContent || '—';
+    const anxSev   = (document.querySelector('#anx-severity .active') || {}).textContent || '—';
+    const sleepSev = (document.querySelector('#sleep-severity .active') || {}).textContent || '—';
+    const goals    = document.getElementById('goals').value.trim();
+
+    const hasAddiction = addictionChecks.length > 0 && addictionChecks[0] !== 'Not applicable';
+    const hasAnxiety   = mentalChecks.some(m => m.includes('Anxiety') || m === 'PTSD' || m === 'Complex PTSD (C-PTSD)' || m === 'Panic Disorder' || m === 'OCD' || m === 'Agoraphobia');
+    const hasMood      = mentalChecks.some(m => m.includes('Depress') || m.includes('Bipolar') || m.includes('Cyclothymia') || m.includes('Dysthymia') || m === 'PMDD');
+    const hasTrauma    = mentalChecks.some(m => m.includes('PTSD') || m.includes('Trauma'));
+    const hasADHD      = mentalChecks.some(m => m.includes('ADHD'));
+    const hasOCD       = mentalChecks.some(m => m.includes('OCD') || m.includes('Dysmorphic') || m.includes('Hoarding') || m.includes('Trichotillomania'));
+    const hasEating    = mentalChecks.some(m => m.includes('Anorexia') || m.includes('Bulimia') || m.includes('Binge'));
+    const hasSleep     = mentalChecks.some(m => m.includes('Insomnia') || m.includes('Sleep')) || sleepSev >= 4;
+    const hasBPD       = mentalChecks.some(m => m.includes('BPD') || m.includes('Borderline'));
+    const hasAnger     = mentalChecks.some(m => m.includes('Anger') || m.includes('Explosive') || m.includes('Impulse Control'));
+    const highAnx      = +anxSev >= 4;
+    const highMood     = +moodSev >= 4;
+
+    // ── CRISIS DETECTION ────────────────────────────
+    const highRiskDx = mentalChecks.some(m =>
+      m.includes('Schizophrenia') || m.includes('Schizoaffective') ||
+      m.includes('BPD') || m.includes('Borderline') ||
+      (m.includes('PTSD') && highMood)
+    );
+    const highRiskSub = addictionChecks.some(a =>
+      a.includes('Opioid') || a.includes('Benzodiazepine') || a.includes('Polysubstance')
+    ) && recoveryStatus === 'Currently using';
+    const isHighRisk = (highRiskDx && highMood && highAnx) || highRiskSub;
+    const crisisBannerEl = document.getElementById('crisis-banner');
+    if (crisisBannerEl) crisisBannerEl.style.display = isHighRisk ? 'flex' : 'none';
+
+    // Set date — use chosen start date
+    const startDateBtn = document.querySelector('.start-date-btn.selected');
+    const startDate = startDateBtn ? new Date(startDateBtn.dataset.date + 'T12:00:00') : new Date();
+    const now = new Date();
+    document.getElementById('plan-date-label').textContent = 'Starting ' + startDate.toLocaleDateString('en-GB', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    // Greeting
+    const hour = now.getHours();
+    const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+    document.getElementById('plan-name').textContent = `${greeting}, ${firstName}.`;
+
+    // Intro
+    let intro = `This weekly plan has been personalised across ${mentalChecks.length + addictionChecks.length} identified focus areas, calibrated for ${timeLabel} daily sessions on your selected days (${daysLabel}).`;
+    if (goals) intro += ` Goals noted: "${goals}".`;
+    intro += ' This plan is yours to work through at your own pace. Therapy sessions can be added as an optional layer at any point.';  
+    document.getElementById('plan-intro').textContent = intro;
+
+    // Certificate
+    document.getElementById('cert-name-display').textContent = firstName + (lastName ? ' ' + lastName : '');
+    document.getElementById('cert-date-display').textContent = startDate.toLocaleDateString('en-GB', { year:'numeric', month:'long', day:'numeric' });
+    const certId = 'CC-' + now.getFullYear() + '-' + Math.random().toString(36).substring(2,7).toUpperCase();
+    document.getElementById('cert-id-display').textContent = certId;
+
+    // Diagnoses tags
+    const dxEl = document.getElementById('plan-diagnoses');
+    dxEl.innerHTML = '';
+    if (mentalChecks.length === 0 && addictionChecks.length === 0) {
+      dxEl.innerHTML = '<span class="dx-tag mental">General Wellbeing Support</span>';
+    }
+    mentalChecks.forEach(d => { dxEl.innerHTML += `<span class="dx-tag mental">${d}</span>`; });
+    addictionChecks.forEach(d => { dxEl.innerHTML += `<span class="dx-tag addiction">${d}</span>`; });
+
+    // ── SLOT LIBRARY (time-aware) ──────────────────────
+    // Each slot: { time, tag, tagLabel, title, desc, minMins, intensive }
+    // minMins = minimum daily minutes needed to include this slot
+    // intensive = only on high-time days
+
+    const morningRoutine = { time: isFullTime ? '7:00 AM' : '8:00 AM', tag:'tag-wellness', tagLabel:'Morning Routine',
+      title:'Morning Activation',
+      desc: [
+        hasMood || mentalChecks.length === 0 ? 'Mood check-in: rate 1–10, set 3 daily intentions in your journal' : null,
+        hasADHD ? 'Review task list & set up Pomodoro blocks (25 min focus / 5 min rest)' : null,
+        hasAnxiety || highAnx ? '4-7-8 breathing (3 rounds) to regulate the nervous system' : null,
+        hasAddiction ? 'Morning affirmation & sobriety check-in' : null,
+        !hasMood && !hasADHD && !hasAnxiety && !hasAddiction ? 'Gratitude journal — write 3 things you are thankful for' : null,
+      ].filter(Boolean), minMins: 5 };
+
+    const movementSlot = { time: isFullTime ? '12:30 PM' : '9:30 AM', tag:'tag-wellness', tagLabel:'Physical Health',
+      title: therapyMins <= 15 ? '10-min Movement Break' : 'Movement & Exercise',
+      desc: [
+        therapyMins <= 15 ? '10-minute walk or stretching — even short movement supports mood and cognition' : null,
+        therapyMins > 15 && hasMood ? '30-min aerobic exercise (walk, jog, swim) — elevates serotonin' : null,
+        therapyMins > 15 && hasADHD ? 'HIIT or sport — regulates dopamine levels' : null,
+        therapyMins > 15 && hasAnxiety ? 'Gentle yoga or tai chi — activates parasympathetic nervous system' : null,
+        therapyMins > 15 && (hasBPD || hasTrauma) ? 'Somatic movement (dance, yoga) for grounding and body awareness' : null,
+        therapyMins > 15 && !hasMood && !hasADHD && !hasAnxiety && !hasBPD && !hasTrauma ? '30-min brisk walk outdoors — light exposure supports mood regulation' : null,
+      ].filter(Boolean), minMins: 5 };
+
+    const therapySkillSlot = { time: isFullTime ? 'Lunch or eve' : '10:00 AM', tag:'tag-therapy', tagLabel:'Clinical Practice',
+      title:'Therapeutic Skill Practice',
+      desc: [
+        hasOCD ? 'ERP practice — 20 min structured exposure with response prevention hierarchy' : null,
+        hasADHD ? 'CBT skill: attention management review, distraction log update' : null,
+        hasTrauma || hasBPD ? 'DBT skill: TIPP or STOP skills for emotion regulation' : null,
+        hasMood && !hasOCD && !hasBPD ? 'Behavioural Activation: plan one pleasurable + one mastery activity' : null,
+        hasAnxiety && !hasOCD ? 'Cognitive restructuring: identify one anxious thought, apply evidence for/against' : null,
+        (hasMood || hasAnxiety) && !hasOCD && !hasBPD ? 'REBT — ABC model: note what happened (A), spot the rigid belief (B — e.g. "I must…"), notice how it made you feel (C), then challenge it. Free worksheet at rebtnetwork.org/library/shf.html' : null,
+        hasAddiction ? 'SMART Recovery or 12-Step check-in (online meeting counts)' : null,
+        hasEating ? 'Mindful eating check-in before each meal; review structured meal plan' : null,
+        !hasOCD && !hasADHD && !hasTrauma && !hasBPD && !hasMood && !hasAnxiety && !hasAddiction && !hasEating ? 'Reflective journaling: reframe one challenging thought constructively using the REBT ABC model' : null,
+      ].filter(Boolean), minMins: 10 };
+
+    const mindfulSlot = { time: isFullTime ? '5:30 PM' : '2:00 PM', tag:'tag-mindful', tagLabel:'Mindfulness',
+      title: therapyMins <= 15 ? '5-min Mindful Reset' : 'Mindfulness Practice',
+      desc: [
+        therapyMins <= 15 ? 'Box breathing or 5-4-3-2-1 grounding (5 minutes) — ideal for busy schedules' : null,
+        therapyMins > 15 && (hasAnxiety || hasOCD) ? '10-min mindfulness meditation — Headspace, Calm, or Insight Timer' : null,
+        therapyMins > 15 && (hasAnxiety || hasTrauma || hasMood || hasOCD) ? 'EFT Tapping (5–10 min) — hold today’s main stressor in mind, rate your distress 0–10, then tap through the sequence: karate chop → eyebrow → side of eye → under eye → chin → collarbone → underarm → top of head. App: The Tapping Solution (thetappingsolution.com)' : null,
+        therapyMins > 15 && (hasMood || hasBPD) ? 'Opposite Action: identify low-mood urge and act against it intentionally' : null,
+        therapyMins > 15 && hasADHD ? 'Mindful focus break: 5-min breathing reset between task blocks' : null,
+        therapyMins > 15 && hasTrauma ? 'Grounding exercise: 5-4-3-2-1 sensory technique if triggered' : null,
+        therapyMins > 15 && !hasAnxiety && !hasOCD && !hasMood && !hasBPD && !hasADHD && !hasTrauma ? '10-min breath meditation to reset stress hormones' : null,
+      ].filter(Boolean), minMins: 5 };
+
+    const vrTechSlot = (vrReady || vrNo) ? { time: isFullTime ? '6:30 PM' : '3:00 PM', tag:'tag-tech', tagLabel: vrNo ? 'Digital Therapy' : 'VR Therapy',
+      title: vrNo ? 'Phone & Web-Based Therapy' : vrHave ? 'VR Therapy Session' : 'Preparing for VR Therapy',
+      desc: vrReady ? [
+        hasAnxiety || hasOCD ? (vrHave ? 'VR Exposure (Oxford VR, oVRcome, Limbix) — 15–20 min guided anxiety/phobia session' : 'Research Meta Quest 3 / Pico 4; download Oxford VR and oVRcome ready for first session') : null,
+        hasTrauma ? (vrHave ? 'VR EMDR session via Psious or Mindmaze — confirm with your therapist first' : 'Discuss VR-assisted EMDR with your therapist ahead of headset arrival') : null,
+        hasOCD ? (vrHave ? 'VR ERP practice: immersive hierarchy scenarios in Limbix or oVRcome (ovrcome.io)' : 'Ask therapist about VR ERP — clinically validated for OCD, available on oVRcome') : null,
+        hasMood ? (vrHave ? 'Tripp (tripp.city) — research-backed immersive VR mindfulness & mood-lift sessions. Available on Meta Quest & mobile AR. Also try Nature Treks VR for calming environments.' : 'Tripp (tripp.city) is a mindfulness VR app with strong mood benefits — available on Meta Quest 3 or as a mobile AR app while you wait for a headset') : null,
+        !hasAnxiety && !hasOCD && !hasTrauma && !hasMood ? (vrHave ? 'Tripp (tripp.city) — immersive guided mindfulness & breathing sessions. Also: Guided Meditation VR, CalmPlace VR' : 'When your headset arrives, start with Tripp (tripp.city) — available on Meta Quest. Download Oxford VR and oVRcome too.') : null,
+      ].filter(Boolean) : [
+        'Telehealth appointment: book or attend a video session with your psychologist or GP',
+        aiOk || aiSome ? 'CBT app check-in: Wysa, Woebot, or MindShift (15–20 min)' : null,
+        'Browser-based programs: MindSpot, This Way Up, or Therapy Assist Online — free structured CBT',
+      ].filter(Boolean), minMins: 15 } : null;
+
+    const socialSlot = { time: isFullTime ? '7:00 PM' : '5:00 PM', tag:'tag-social', tagLabel:'Connection',
+      title:'Social & Support Connection',
+      desc: [
+        hasBPD || mentalChecks.some(m => m.includes('Social Anxiety')) ? 'One interpersonal interaction (in person or phone); use DEAR MAN skill if needed' : null,
+        hasMood ? 'Call or message a trusted friend/family member — 30 min meaningful connection' : null,
+        hasAddiction ? 'Contact your sponsor, support group, or recovery peer' : null,
+        !hasBPD && !hasMood && !hasAddiction ? 'Reach out to one person in your network — brief check-ins strengthen resilience' : null,
+      ].filter(Boolean), minMins: 5 };
+
+    const recoverySlot = hasAddiction && recoveryStatus && recoveryStatus !== 'Not applicable' ? {
+      time: isFullTime ? '7:45 PM' : '6:00 PM', tag:'tag-recovery', tagLabel:'Recovery',
+      title:'Recovery Management',
+      desc: [
+        'Urge surfing: if cravings arise, observe without acting — ride the wave 15–20 min',
+        'Log triggers in your recovery journal',
+        'Contact sponsor or crisis line if urges become unmanageable',
+        recoveryStatus.includes('Early') ? 'Attend a meeting or recovery group session this evening if possible' : 'Review your relapse prevention plan',
+      ], minMins: 10 } : null;
+
+    const nutritionSlot = { time: isFullTime ? '12:00 PM' : '12:00 PM', tag:'tag-nutrition', tagLabel:'Nutrition',
+      title:'Nourishment',
+      desc: [
+        'Balanced meals: lean protein, complex carbs, leafy greens, healthy fats',
+        hasMood ? 'Include omega-3 foods (salmon, walnuts, flaxseed) for mood support' : null,
+        hasAnxiety || highAnx ? 'Cap caffeine before 12:00 PM; aim for 2L water daily' : null,
+        hasAddiction ? 'Avoid high-sugar foods that spike craving cycles; eat at regular intervals' : null,
+        hasEating ? 'Eat with a support person when possible; follow structured meal plan' : null,
+        !hasMood && !hasAnxiety && !hasAddiction && !hasEating ? 'Mindful eating: no screens during meals; eat slowly and note fullness cues' : null,
+      ].filter(Boolean), minMins: 5 };
+
+    const angerSlot = hasAnger ? { time: isFullTime ? '6:00 PM' : '4:00 PM', tag:'tag-therapy', tagLabel:'Anger Management',
+      title:'Anger & Impulse Control Practice',
+      desc: [
+        'Cool-down technique: STOP — Stop, Take a breath, Observe your body, Proceed mindfully',
+        'Identify your personal anger triggers in a journal entry — note the situation, the feeling, the physical cue (e.g. jaw clenching, heat in chest)',
+        'Practice the Anger Iceberg: write down what the anger might be covering (fear, hurt, shame)',
+        +therapyMins >= 30 ? 'Role-play a difficult scenario mentally using assertiveness (not aggression): use "I feel..." statements' : null,
+        hasAnxiety || hasBPD ? 'DBT DEARMAN: practise expressing needs assertively without escalation' : null,
+      ].filter(Boolean), minMins: 15 } : null;
+
+    const sleepSlot = { time: '9:30 PM', tag:'tag-sleep', tagLabel:'Sleep Hygiene',
+      title:'Wind-Down & Sleep Preparation',
+      desc: [
+        'Screens off 60–90 min before bed; use Night Mode or blue-light glasses',
+        hasSleep || +sleepSev >= 4 ? 'Fixed bedtime (e.g. 10:00 PM); stimulus control — bed is for sleep only' : null,
+        'Progressive Muscle Relaxation (PMR) or guided sleep meditation',
+        hasMood ? 'End-of-day mood journal: rate mood, note 3 positive moments' : null,
+        hasAnxiety ? '"Worry dump": write anxious thoughts on paper to offload before sleep' : null,
+        hasSleep || +sleepSev >= 3 ? 'YouTube: Michael Sealey — deep sleep hypnosis & body scan (youtube.com/@MichaelSealey). Free.' : null,
+      ].filter(Boolean), minMins: 5 };
+
+    const guidedMediaSlot = { time: isFullTime ? '5:00 PM' : '3:30 PM', tag:'tag-mindful', tagLabel:'Guided Media',
+      title: 'Calming Videos & Guided Practice',
+      desc: [
+        'YouTube: The Honest Guys — free guided meditations, sleep journeys & relaxation (youtube.com/@TheHonestGuys)',
+        hasMood || hasAnxiety || mentalChecks.length === 0 ? 'YouTube: Headspace channel — short 3–10 min meditations and breathing exercises (youtube.com/@headspace)' : null,
+        hasTrauma || hasBPD || highAnx ? 'EFT Tapping video series — The Tapping Solution YouTube channel has free guided tapping sessions for anxiety & stress (youtube.com/@TappingSolution)' : null,
+        hasAddiction || hasMood ? 'YouTube: Dr. Joe Dispenza — guided meditations for breaking old patterns and building a new mindset (search “Dr Joe Dispenza meditation”)' : null,
+        !hasTrauma && !hasAddiction && !hasMood ? 'Insight Timer — free app with 150,000+ guided meditations, calming music and sleep sounds (insighttimer.com)' : null,
+      ].filter(Boolean), minMins: 10 };
+
+    // ── ASSIGN SLOTS TO DAYS ──────────────────────────
+    // Determine which days get which slots based on available time
+    // Cycle: therapy skill rotates Mon/Wed/Fri or similar
+    const allSlots = [morningRoutine, movementSlot, therapySkillSlot, mindfulSlot, guidedMediaSlot, vrTechSlot, angerSlot, socialSlot, recoverySlot, nutritionSlot, sleepSlot].filter(Boolean);
+
+    // Budget: how many slots fit per day given minutes
+    // Each slot costs roughly: 5–10 min for light, 20–30 for intensive
+    const slotCost = { 'tag-wellness':10, 'tag-therapy':20, 'tag-mindful':10, 'tag-tech':20, 'tag-social':10, 'tag-recovery':15, 'tag-nutrition':5, 'tag-sleep':10 };
+
+    function slotsForDay(dayName, dayIndex) {
+      const budget = therapyMins;
+      const isWeekend = dayName === 'Sat' || dayName === 'Sun';
+      const isWorkday = (isFullTime || isPartTime) && !isWeekend;
+      let slots = [];
+      let spent = 0;
+      // Always include morning routine (micro-friendly)
+      slots.push(morningRoutine); spent += 5;
+      // Alternate therapy skill every other day
+      if (dayIndex % 2 === 0 && spent + 20 <= budget + 10) { slots.push(therapySkillSlot); spent += 20; }
+      // Movement — daily if time allows, else weekends/days off
+      if (!isWorkday || budget >= 30) { slots.push(movementSlot); spent += 10; }
+      // Nutrition reminder on all days
+      if (budget >= 10) { slots.push(nutritionSlot); spent += 5; }
+      // Mindfulness — daily (brief version auto-activates for low-time)
+      slots.push(mindfulSlot); spent += (budget <= 15 ? 5 : 10);
+      // Guided media — alternate days, budget permitting
+      if (budget >= 15 && dayIndex % 2 === 0) { slots.push(guidedMediaSlot); spent += 10; }
+      // VR/digital — 2–3 times per week on lower-demand days
+      if (vrTechSlot && ((!isWorkday && budget >= 20) || budget >= 60) && dayIndex % 2 === 1) { slots.push(vrTechSlot); spent += 20; }
+      // Social — every day for low-time users (just a nudge), intensive days for others
+      if (budget <= 30 || dayIndex % 3 !== 2) { slots.push(socialSlot); spent += 5; }
+      // Recovery — daily if applicable
+      if (recoverySlot && spent + 15 <= budget + 15) { slots.push(recoverySlot); spent += 15; }
+      // Anger management — every other day if applicable
+      if (angerSlot && dayIndex % 2 === 0 && spent + 15 <= budget + 10) { slots.push(angerSlot); spent += 15; }
+      // Sleep hygiene — every day
+      slots.push(sleepSlot); spent += 5;
+      return slots;
+    }
+
+    // Calculate weekly totals for summary bar
+    let totalWeeklyMins = activeDays.length * therapyMins;
+    let therapySessions = activeDays.filter((_,i) => i % 2 === 0).length;
+
+    // Summary bar
+    const sumEl = document.getElementById('plan-summary-bar');
+    sumEl.innerHTML = `
+      <div class="summary-stat"><span class="summary-stat-value">${activeDays.length}</span><span class="summary-stat-label">Active days/week</span></div>
+      <div class="summary-stat-divider"></div>
+      <div class="summary-stat"><span class="summary-stat-value">${therapyMins} min</span><span class="summary-stat-label">Daily target</span></div>
+      <div class="summary-stat-divider"></div>
+      <div class="summary-stat"><span class="summary-stat-value">~${Math.round(totalWeeklyMins/60*10)/10} hrs</span><span class="summary-stat-label">Est. weekly total</span></div>
+      <div class="summary-stat-divider"></div>
+      <div class="summary-stat"><span class="summary-stat-value">${therapySessions}×</span><span class="summary-stat-label">Skill sessions/week</span></div>
+      <div class="summary-stat-divider"></div>
+      <div class="summary-stat"><span class="summary-stat-value">${workStatus ? document.getElementById('workStatus').options[document.getElementById('workStatus').selectedIndex].text.split('(')[0].trim() : '—'}</span><span class="summary-stat-label">Work status</span></div>
+    `;
+
+    // 4-week program overview
+    const fwEl = document.getElementById('four-week-grid');
+    const weekPlans = [
+      {
+        num: '01', phase: 'Week 1', theme: 'Foundation & Awareness',
+        desc: 'Establish your daily routine, begin mood tracking and build your baseline coping toolkit.',
+        pills: ['Morning Routine', 'Mindfulness', 'Sleep Hygiene'],
+      },
+      {
+        num: '02', phase: 'Week 2', theme: 'Skill Building',
+        desc: `Deepen ${ hasOCD ? 'ERP practice' : hasTrauma || hasBPD ? 'DBT emotion regulation skills' : hasMood ? 'behavioural activation' : hasAnxiety ? 'cognitive restructuring' : 'therapeutic skill practice' } and extend your daily structure.`,
+        pills: ['Therapeutic Skills', 'Movement', hasAddiction ? 'Recovery Practice' : 'Guided Media'],
+      },
+      {
+        num: '03', phase: 'Week 3', theme: 'Deepening Practice',
+        desc: `Apply skills in real-world situations${ vrReady ? ', incorporate VR therapy sessions' : '' } and begin tracking measurable progress week-on-week.`,
+        pills: [vrReady ? 'VR Therapy' : 'Digital Therapy', 'Progress Review', hasAnger ? 'Anger Management' : 'Social Connection'],
+      },
+      {
+        num: '04', phase: 'Week 4', theme: 'Integration & Maintenance',
+        desc: 'Consolidate gains, design a personalised long-term self-care plan and connect with ongoing support services.',
+        pills: ['Long-term Planning', 'Review & Reflect', 'Ongoing Support'],
+      },
+    ];
+    fwEl.innerHTML = weekPlans.map((w, i) => `
+      <div class="fw-card${ i === 0 ? ' fw-active' : '' }">
+        <div class="fw-header">
+          <span class="fw-num">${w.num}</span>
+          <span class="fw-phase">${w.phase}</span>
+        </div>
+        <div class="fw-theme">${w.theme}</div>
+        <p class="fw-desc">${w.desc}</p>
+        <div class="fw-pills">${w.pills.map(p => `<span class="fw-pill">${p}</span>`).join('')}</div>
+      </div>`).join('');
+
+    // Render weekly grid
+    const tlEl = document.getElementById('plan-timeline');
+    tlEl.innerHTML = '';
+    const dayFullNames = { Mon:'Monday', Tue:'Tuesday', Wed:'Wednesday', Thu:'Thursday', Fri:'Friday', Sat:'Saturday', Sun:'Sunday' };
+    const dayTypes = { Mon:'Structured day', Tue:'Active day', Wed:'Structured day', Thu:'Active day', Fri:'Reflection day', Sat:'Rest & recovery', Sun:'Rest & recovery' };
+    activeDays.forEach((day, idx) => {
+      const daySlots = slotsForDay(day, idx);
+      tlEl.innerHTML += `
+        <div class="week-day-block">
+          <div class="week-day-header">
+            <span class="week-day-name">${dayFullNames[day] || day}</span>
+            <span class="week-day-meta">${dayTypes[day] || ''} · ~${therapyMins} min</span>
+          </div>
+          <div class="week-day-slots">
+            ${daySlots.map(s => `
+              <div class="week-slot">
+                <div class="week-slot-time">${s.time}</div>
+                <div class="week-slot-body">
+                  <span class="week-slot-tag ${s.tag}">${s.tagLabel}</span>
+                  <div class="week-slot-title">${s.title}</div>
+                  <div class="week-slot-desc">${s.desc[0]}${s.desc.length > 1 ? `<ul style="margin:4px 0 0 16px">${s.desc.slice(1).map(d=>`<li>${d}</li>`).join('')}</ul>` : ''}</div>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>`;
+    });
+
+    // ── RESOURCES ─────────────────────────────────────
+    const resources = [];
+
+    if (hasAnxiety || hasOCD) resources.push({ icon:'🧠', title:'CBT Workbook', text:'Mind Over Mood (Greenberger & Padesky) – evidence-based CBT exercises for anxiety and mood.' });
+    if (hasBPD || hasTrauma) resources.push({ icon:'📗', title:'DBT Skills Training', text:'The DBT Skills Workbook (McKay) – full suite of DBT skills for emotion regulation.' });
+    if (hasAddiction) resources.push({ icon:'🔗', title:'SMART Recovery', text:'smartrecoveryaustralia.com.au — free science-based addiction support groups, online & in-person.' });
+    if (hasAddiction) resources.push({ icon:'📞', title:'Alcohol Drug Info Line', text:'1800 250 015 (AU) — 24/7 confidential counselling for substance use concerns.' });
+    if (hasMood || mentalChecks.length > 0) resources.push({ icon:'💬', title:'Beyond Blue', text:'beyondblue.org.au — resources, forums and counsellor chat for depression and anxiety.' });
+    if (mentalChecks.length > 0 || addictionChecks.length > 0) resources.push({ icon:'🏥', title:'Headspace', text:'headspace.com — national youth mental health service (12–25). Telehealth available.' });
+    if (hasTrauma || hasBPD || highMood) resources.push({ icon:'🆘', title:'Lifeline Crisis Support', text:'lifeline.org.au · 13 11 14 — 24/7 crisis counselling and suicide prevention.' });
+    if (hasSleep || +sleepSev >= 3) resources.push({ icon:'🌙', title:'Sleep Health Foundation', text:'sleephealthfoundation.org.au — evidence-based guides on sleep hygiene and insomnia management.' });
+    if (hasSleep || +sleepSev >= 3) resources.push({ icon:'🎬', title:'Michael Sealey — YouTube', text:'youtube.com/@MichaelSealey — free deep sleep hypnosis, body scan meditations and guided relaxation. No signup needed.' });
+    // Tapping
+    if (hasAnxiety || hasTrauma || hasMood || mentalChecks.length === 0) resources.push({ icon:'🤲', title:'The Tapping Solution', text:'thetappingsolution.com — EFT tapping app backed by 300+ clinical studies. Proven to reduce cortisol by 43%. Free to try on iOS and Android.' });
+    // REBT
+    if (hasMood || hasAnxiety || mentalChecks.length === 0) resources.push({ icon:'💡', title:'REBT Self-Help Form', text:'Free worksheet at rebtnetwork.org/library/shf.html — walk through the ABC model to identify and challenge the rigid beliefs driving your distress.' });
+    // Guided meditation YouTube
+    resources.push({ icon:'🎧', title:'The Honest Guys — YouTube', text:'youtube.com/@TheHonestGuys — one of the most popular free guided meditation channels. Sleep journeys, relaxation and nature soundscapes. No signup needed.' });
+    // VR resources
+    if (vrHave) {
+      resources.push({ icon:'🥽', title:'Tripp — VR Mindfulness', text:'tripp.city — immersive VR mindfulness & mood-lift app. Research-backed breathwork and visualisation sessions. Available on Meta Quest and as a mobile AR app.' });
+      resources.push({ icon:'🥽', title:'Oxford VR', text:'oxfordvr.org — clinically-validated VR therapy for anxiety, psychosis and phobias. Available for consumer headsets.' });
+      if (hasAnxiety || hasOCD || hasTrauma) resources.push({ icon:'🥽', title:'oVRcome', text:'ovrcome.io — award-winning VR exposure therapy platform. 75% reduction in symptom severity in clinical trials. 20+ conditions. Available on Meta Quest & smartphone.' });
+    }
+    if (vrPlanning) {
+      resources.push({ icon:'🛒', title:'Getting Started with VR Therapy', text:'Recommended headsets: Meta Quest 3 (standalone, no PC needed). First apps to download: Tripp (tripp.city) for mindfulness, Oxford VR for clinical therapy, oVRcome (ovrcome.io) for exposure therapy, Limbix for CBT.' });
+    }
+    if (vrNo) {
+      resources.push({ icon:'💻', title:'MindSpot Clinic', text:'mindspot.org.au — free online evidence-based programs for anxiety, depression, PTSD and chronic pain.' });
+      resources.push({ icon:'💻', title:'This Way Up', text:'thiswayup.org.au — clinician-supported online CBT courses for a wide range of mental health conditions.' });
+    }
+    // AI-assisted tools
+    if (aiOk) {
+      resources.push({ icon:'🤖', title:'Wysa AI Wellbeing', text:'wysa.com — AI-powered emotional support chatbot with CBT, DBT and mindfulness exercises. Clinician-reviewed.' });
+      resources.push({ icon:'🤖', title:'Woebot', text:'woebothealth.com — AI chatbot delivering CBT-based mental health support. Research-backed, available 24/7.' });
+    } else if (aiSome) {
+      resources.push({ icon:'🤖', title:'Wysa AI Wellbeing', text:'wysa.com — AI-assisted journalling and mood tracking. You control how much you engage; no pressure.' });
+    } else if (aiNone) {
+      resources.push({ icon:'👥', title:'Human-Led Peer Support', text:'SANE Australia (sane.org) and Mental Health Carers Australia offer human-facilitated forums and phone support — no AI involved.' });
+    }
+    if (hasAnger) resources.push({ icon:'😤', title:'Anger Management Resources', text:'Gottman Institute (gottman.com) — research-based tools for managing anger in relationships. Also: BeyondBlue Anger page and MensLine Australia (mensline.org.au) for anger-specific support.' });
+    if (hasAnger) resources.push({ icon:'📖', title:'The Anger Trap (book)', text:'Dr Les Carter — evidence-based guide to understanding and redirecting anger. Available on Amazon and most public libraries.' });
+    if (resources.length < 2) resources.push({ icon:'📱', title:'Calm App', text:'Guided meditations, sleep stories, and breathing exercises to support daily mental wellbeing.' });
+    if (resources.length < 4) resources.push({ icon:'🩺', title:'Your GP / Doctor', text:'Your GP can refer you to a psychologist and provide access to subsidised sessions under a Mental Health Care Plan.' });
+
+    const resEl = document.getElementById('plan-resources');
+    resEl.innerHTML = '';
+    resources.slice(0, 6).forEach(r => {
+      resEl.innerHTML += `
+        <div class="resource-card">
+          <div class="resource-icon">${r.icon}</div>
+          <h4>${r.title}</h4>
+          <p>${r.text}</p>
+        </div>`;
+    });
+
+    // Wire up email-to-myself button
+    const emailPlanBtn = document.getElementById('email-plan-btn');
+    if (emailPlanBtn) {
+      const emailAddr = document.getElementById('email').value.trim();
+      const focusList = [...mentalChecks, ...addictionChecks].join(', ') || 'General Wellbeing';
+      const emailSubject = encodeURIComponent('Your CAST Clinical 4-Week Wellbeing Plan');
+      const emailBody = encodeURIComponent(
+        `Hi ${firstName},\n\nYour personalised 4-week wellbeing plan is ready.\n\nFocus areas: ${focusList}\nProgram days: ${daysLabel}\nDaily time: ${timeLabel}\n\nView your full plan:\nhttps://fireflyxserenity.github.io/castclinical/app.html\n\nThis is a self-guided support resource — please also discuss your focus areas with your treating clinician.\n\nIn a crisis? Call 13 11 14 (AU) | 988 (US) | 116 123 (UK)\n\n— CAST Clinical`
+      );
+      emailPlanBtn.href = `mailto:${emailAddr}?subject=${emailSubject}&body=${emailBody}`;
+    }
+
+    // Show plan, hide form
+    document.getElementById('form-section').style.display = 'none';
+    document.getElementById('progress-wrap').style.display = 'none';
+    document.getElementById('plan-card').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ─── RESET ──────────────────────────────────────────
+  function startOver() {
+    document.getElementById('plan-card').classList.remove('visible');
+    document.getElementById('form-section').style.display = '';
+    document.getElementById('progress-wrap').style.display = '';
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-1').classList.add('active');
+    currentStep = 1;
+    updateProgress(1);
+    // Reset all inputs
+    document.querySelectorAll('input[type="text"], input[type="email"], input[type="number"], textarea').forEach(el => el.value = '');
+    document.querySelectorAll('select').forEach(el => el.value = '');
+    document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => el.checked = false);
+    document.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('selected'));
+    document.querySelectorAll('.start-date-btn').forEach(b => b.classList.remove('selected'));
+    setReminder(true);
+    document.getElementById('remByEmail').checked = true;
+    document.getElementById('remByText').checked = false;
+    updateReminderFields();
+    const re = document.getElementById('reminderEmail');
+    if (re) { re.value = ''; delete re.dataset.edited; }
+    document.getElementById('reminderPhone').value = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ─── INIT ────────────────────────────────────────────
+  updateProgress(1);
+
+  // ─── THEME TOGGLE ────────────────────────────────────
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    if (!toggle) return;
+    // Restore saved preference (default: light)
+    if (localStorage.getItem('cast-theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+    toggle.addEventListener('click', function () {
+      document.body.classList.toggle('dark');
+      var isDark = document.body.classList.contains('dark');
+      localStorage.setItem('cast-theme', isDark ? 'dark' : 'light');
+    });
+  })();
+</script>
+
+</body>
+</html>
