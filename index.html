@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cast Clinical Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>/* page-specific */
+    /* ── Design Tokens ── */
+    :root {
+      --bg:        #F5F3EE;
+      --surface:   #FFFFFF;
+      --border:    #E2DDD6;
+      --text:      #2B2925;
+      --muted:     #706A62;
+      --accent:    #2A9CC8;
+      --accent-lt: #E6F4FA;
+      --accent-dk: #1E7FA3;
+      --hero-bg:   #EBF6FB;
+      --nav-bg:    rgba(245,243,238,0.88);
+      --gradient:  linear-gradient(135deg, #2A9CC8, #0ECFCF);
+      --shadow:    0 4px 32px rgba(0,0,0,0.07);
+      --radius:    14px;
+      --radius-sm: 8px;
+      --transition: 0.25s ease;
+    }
+    [data-theme="dark"] {
+      --bg:        #141A1F;
+      --surface:   #1E262D;
+      --border:    #2C3740;
+      --text:      #E6E1D9;
+      --muted:     #8C9AA3;
+      --accent:    #4BB8D4;
+      --accent-lt: #0D2535;
+      --accent-dk: #6DCDE0;
+      --hero-bg:   #0D1E2D;
+      --nav-bg:    rgba(20,26,31,0.9);
+      --shadow:    0 4px 32px rgba(0,0,0,0.3);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      transition: background var(--transition), color var(--transition);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color var(--transition);
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-book {
+      background: var(--gradient);
+      color: #fff;
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: filter var(--transition), transform 0.15s;
+    }
+    .btn-book:hover { filter: brightness(0.88); transform: translateY(-1px); }
+    .btn-self-assess {
+      position: relative;
+      background: transparent;
+      color: var(--accent);
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border: 1.5px solid var(--accent);
+      transition: background var(--transition), color var(--transition), transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+    .btn-self-assess::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .btn-self-assess:hover {
+      color: #fff;
+      border-color: transparent;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(42,156,200,0.3);
+    }
+    .btn-self-assess:hover::before { opacity: 1; }
+    .btn-self-assess span { position: relative; z-index: 1; }
+
+    /* ── Theme Toggle ── */
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      cursor: pointer;
+      padding: 0.3rem 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .theme-toggle .icon { font-size: 1rem; line-height: 1; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--hero-bg);
+      padding: 6.5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      transition: background var(--transition);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 20% 30%, rgba(42,156,200,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 70%, rgba(14,207,207,0.09) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .hero::before {
+      background:
+        radial-gradient(ellipse 70% 60% at 20% 30%, rgba(42,156,200,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 70%, rgba(14,207,207,0.08) 0%, transparent 55%);
+    }
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-lt);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(42,156,200,0.2);
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 0 0 1.1rem;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin: 0 0 1.75rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 0.875rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: filter var(--transition), transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(42,156,200,0.28);
+    }
+    .btn-primary:hover {
+      filter: brightness(0.88);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(42,156,200,0.36);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), color var(--transition), transform 0.15s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .hero-blockquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.65;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.1rem;
+    }
+    .hero-blockquote cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-style: normal;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .hero-service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .hero-service-tags span {
+      background: var(--accent-lt);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.85rem;
+      border-radius: 50px;
+      border: 1px solid rgba(42,156,200,0.2);
+      transition: background var(--transition);
+    }
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+    .hero-phone:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Hero Nature Touch ── */
+    .hero-nature-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 108px;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.10);
+    }
+    .hero-nature-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+    }
+    /* ── Welcome Nature Thumb ── */
+    .welcome-nature-thumb {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 130px;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    }
+    .welcome-nature-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    /* ── NIHB Provider Callout ── */
+    .nihb-provider-callout {
+      background: var(--accent-lt);
+      border-top: 1px solid rgba(42,156,200,0.15);
+      border-bottom: 1px solid rgba(42,156,200,0.15);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      transition: background var(--transition);
+    }
+    .nihb-badge {
+      background: var(--gradient);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .nihb-provider-callout p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+      max-width: 540px;
+      text-align: center;
+    }
+
+    /* ── Section Shared ── */
+    section { padding: 4.5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+    .section-body {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 580px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── Welcome / About ── */
+    .welcome {
+      background: var(--surface);
+      transition: background var(--transition);
+    }
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .welcome-quote {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.5rem 1.75rem;
+      margin-top: 2rem;
+      transition: background var(--transition);
+    }
+    .welcome-quote blockquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .welcome-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .welcome-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .stat-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background var(--transition), border-color var(--transition), transform 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-2px); }
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-lt);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+    .stat-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .stat-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── Services ── */
+    .services { background: var(--bg); transition: background var(--transition); }
+    .services-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .services-header .section-body { margin: 0 auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background var(--transition), border-color var(--transition), transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-lt);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .service-card .service-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+      transition: gap 0.15s;
+    }
+    .service-card:hover .service-link { gap: 0.6rem; }
+
+    /* ── Assessments callout ── */
+    .assessments-banner {
+      background: var(--accent-lt);
+      border: 1px solid rgba(42,156,200,0.2);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      transition: background var(--transition);
+    }
+    .assessments-banner h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .assessments-banner p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── Nature Strip ── */
+    .nature-strip {
+      position: relative;
+      height: 340px;
+      background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .nature-strip-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,28,18,0.55), rgba(8,28,18,0.38));
+    }
+    .nature-strip-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+      max-width: 640px;
+    }
+    .nature-quote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+      line-height: 1.7;
+      opacity: 0.96;
+      margin-bottom: 1.5rem;
+    }
+    .nature-cta {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.45);
+      color: #fff;
+      padding: 0.55rem 1.6rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nature-cta:hover { background: rgba(255,255,255,0.26); border-color: rgba(255,255,255,0.75); }
+
+    /* ── Team ── */
+    .team { background: var(--surface); transition: background var(--transition); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .team-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+      transition: border-color var(--transition);
+    }
+    .team-name {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .team-credentials {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.25rem;
+    }
+    .team-bio {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    /* ── NIHB Strip ── */
+    .nihb-strip {
+      background: var(--gradient);
+      color: #fff;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .nihb-strip h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .nihb-strip p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      max-width: 560px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── Contact ── */
+    .contact { background: var(--bg); transition: background var(--transition); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .contact-item-icon {
+      font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      background: var(--accent-lt);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-text span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .contact-item-text a, .contact-item-text p {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color var(--transition);
+    }
+    .contact-item-text a:hover { color: var(--accent); }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .contact-form h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: border-color var(--transition), background var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select option { background: var(--surface); }
+    .btn-submit {
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.85rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      letter-spacing: 0.02em;
+      transition: filter var(--transition), transform 0.15s;
+    }
+    .btn-submit:hover { filter: brightness(0.88); transform: translateY(-1px); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── Fade-in animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .welcome-grid,
+      .team-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { text-align: center; }
+      .team-avatar { margin: 0 auto; }
+      .team-bio { max-width: 100%; }
+      .assessments-banner { grid-template-columns: 1fr; text-align: center; }
+      .assessments-banner .btn-primary { align-self: center; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: var(--nav-bg);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
+      }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero { padding: 5rem 1.5rem 2.5rem; }
+      section { padding: 3rem 1.25rem; }
+      .contact-form { padding: 1.75rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <a href="#home" class="nav-logo">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" width="32" height="32" aria-hidden="true" style="flex-shrink:0">
+        <defs>
+          <linearGradient id="nav-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2A9CC8"/>
+            <stop offset="100%" stop-color="#0ECFCF"/>
+          </linearGradient>
+        </defs>
+        <rect x="4" y="4" width="32" height="32" rx="7" ry="7" transform="rotate(45 20 20)" fill="url(#nav-grad)"/>
+        <rect x="7.5" y="7.5" width="25" height="25" rx="5.5" ry="5.5" transform="rotate(45 20 20)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+        <path d="M24.5 13.5 A8 8 0 1 0 24.5 26.5" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+      Cast Clinical Services
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="assessments.html">Assessments</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <span class="icon" id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <a href="contact.html" class="btn-book">Book Now</a>
+      <a href="SelfAssessment/index.html" class="btn-self-assess" title="Take a Self Assessment">
+        <span>✦</span><span>Self Assessment</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-left fade-up">
+        <p class="hero-tag">Northern Ontario · Private Practice</p>
+        <h1>Seeking Help to<br /><em>Transform Your Life?</em></h1>
+        <p class="hero-sub">
+          Cast Clinical Services offers counselling and assessments to help you move through trauma and toward lasting wellness.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">Book an Appointment</a>
+          <a href="services.html" class="btn-secondary">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-right fade-up">
+        <div class="hero-nature-img">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=700&q=80" alt="" role="presentation" loading="lazy" />
+        </div>
+        <div class="hero-card">
+          <blockquote class="hero-blockquote">
+            "Wellness encompasses a healthy body, a sound mind, and a tranquil spirit.
+            Enjoy the journey as you strive for wellness."
+            <cite>— Laurette Gagnon Beaulieu</cite>
+          </blockquote>
+          <div class="hero-service-tags">
+            <span>Counselling</span>
+            <span>Assessments</span>
+            <span>NIHB Covered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Welcome ── -->
+  <section class="welcome" id="welcome">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="fade-up">
+          <span class="section-label">Welcome</span>
+          <h2 class="section-title">A Private Space<br />for Your Healing</h2>
+          <p class="section-body">
+            We are a private clinical practice specializing in trauma, addiction, and psychotherapy — offering counselling, assessments, and healing support to individuals throughout Northern Ontario.
+          </p>
+          <p class="section-body" style="margin-top: 1rem;">
+            Each individual's path is unique. Creating balance — whatever that means to you —
+            is an important part of Wellness. We help you clear past trauma in a safe space and
+            establish new habits and thought patterns that support your goals.
+          </p>
+          <div class="welcome-quote">
+            <blockquote>
+              "Wellness encompasses a healthy body, a sound mind, and a tranquil spirit.
+              Enjoy the journey as you strive for wellness."
+            </blockquote>
+            <cite>— Laurette Gagnon Beaulieu</cite>
+          </div>
+        </div>
+        <div class="welcome-visual fade-up">
+          <div class="welcome-nature-thumb">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&w=700&q=80" alt="" role="presentation" loading="lazy" />
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🤝</div>
+            <div>
+              <h4>Personalized Care</h4>
+              <p>Customized treatment tailored to your unique path toward joy and balance.</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💻</div>
+            <div>
+              <h4>Virtual &amp; In-Person</h4>
+              <p>Sessions available virtually, by telephone, in person, or as a hybrid model — wherever you are in Ontario.</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌿</div>
+            <div>
+              <h4>Trauma-Informed</h4>
+              <p>Rooted in compassion — we help you work through the past so the present becomes more peaceful.</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌱</div>
+            <div>
+              <h4>Safe &amp; Inclusive</h4>
+              <p>A welcoming space for all backgrounds, identities, and beliefs — healing looks different for everyone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NIHB Provider Callout ── -->
+  <div class="nihb-provider-callout">
+    <span class="nihb-badge">NIHB Registered Provider</span>
+    <p>Cast Clinical Services is a registered provider of Non-Insured Health Benefits (NIHB) counselling for eligible First Nations and Inuit clients.</p>
+  </div>
+
+  <!-- ── Services ── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header fade-up">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-body">
+          Counselling and assessments — delivered with expertise, compassion, and genuine care for your healing journey.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-icon">🧠</div>
+          <h3>Individual Counselling</h3>
+          <p>
+            Customized, one-on-one therapy with an expertly trained clinician dedicated to
+            helping you find joy and balance. Counselling paves the path toward personal
+            transformation, giving relief from post-traumatic disorder and healing from distress.
+          </p>
+          <a href="counselling.html" class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">📋</div>
+          <h3>Assessments</h3>
+          <p>
+            Prompt assessments available within 5 days of request. Includes
+            Treatment Entry Assessments for accessing treatment programs and
+            Return-to-Work (Substance Abuse Professional) assessments.
+            Assessments for Indigenous and Métis individuals are offered free of charge.
+          </p>
+          <a href="assessments.html" class="service-link">Learn more →</a>
+        </div>
+      </div>
+
+      <!-- Assessments detail banner -->
+      <div class="assessments-banner fade-up">
+        <div>
+          <h3>Treatment Entry &amp; Return-to-Work Assessments</h3>
+          <p>
+            CAST Clinical Services provides referral services for treatment program entry and
+            programming support. We offer option choices for the assessment process and assist
+            with referrals and form completion. Safety at work is crucial — our SAP (Substance
+            Abuse Professional) assessments help ensure safe, supported returns.
+          </p>
+        </div>
+        <a href="assessments.html" class="btn-primary" style="white-space:nowrap;">Book an Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Nature Strip ── -->
+  <div class="nature-strip">
+    <div class="nature-strip-overlay"></div>
+    <div class="nature-strip-content fade-up">
+      <p class="nature-quote">&ldquo;Healing begins in stillness — in the quiet space between who you were and who you are becoming.&rdquo;</p>
+      <a href="contact.html" class="nature-cta">Begin Your Journey</a>
+    </div>
+  </div>
+
+  <!-- ── Team ── -->
+  <section class="team" id="team">
+    <div class="container">
+      <span class="section-label fade-up">Meet the Team</span>
+      <h2 class="section-title fade-up">Lead Counsellor &amp; Owner</h2>
+      <div class="team-grid">
+        <img
+          src="https://www.castclinicalservices.org/wp-content/uploads/2023/03/Lynneheadshot.jpg"
+          class="team-avatar fade-up"
+          alt="Lynne Castonguay, M.S.W., R.S.W., C.C.A.C. — Lead Counsellor"
+          loading="lazy"
+        />
+        <div class="fade-up">
+          <p class="team-name">Lynne Castonguay</p>
+          <p class="team-credentials">M.S.W. · R.S.W. · C.C.A.C.</p>
+          <p class="team-bio">
+            Lynne is the lead counsellor and owner-operator of Cast Clinical Services.
+            She is from Iroquois Falls, Ontario and offers professional services throughout
+            Northern Ontario. As a helper and facilitator for personal healing from trauma,
+            Lynne works with people across Ontario in person and through virtual technology
+            utilizing the Ontario Telemedicine Network.
+          </p>
+          <p class="team-bio" style="margin-top: 1rem;">
+            A true Northerner, Lynne enjoys fishing and spending time in the bush with her
+            family, friends, and faithful dog Grace. She loves spending time with her many
+            companion farm animals at Firefly Acres.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NIHB Strip ── -->
+  <div class="nihb-strip">
+    <h2>Indigenous &amp; Métis Services Available</h2>
+    <p>
+      Assessments for Indigenous and Métis individuals are offered free of charge.
+      Native counselling is available with or without NIHB coverage.
+    </p>
+  </div>
+
+  <!-- ── Contact ── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="section-label fade-up">Reach Out</span>
+          <h2 class="section-title fade-up">Ready to Start Healing?</h2>
+          <p class="section-body fade-up">
+            Take the first step. Contact us today to schedule an appointment or to ask
+            any questions about our services.
+          </p>
+          <div class="contact-info-items">
+            <div class="contact-item fade-up">
+              <div class="contact-item-icon">📞</div>
+              <div class="contact-item-text">
+                <span>Phone / Scheduling</span>
+                <a href="tel:7052625978">(705) 262-5978</a>
+              </div>
+            </div>
+            <div class="contact-item fade-up">
+              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-text">
+                <span>Email</span>
+                <a href="mailto:lynne.castclinical@gmail.com">lynne.castclinical@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item fade-up">
+              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-text">
+                <span>Region</span>
+                <p>Northern Ontario (in-person &amp; virtual)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form fade-up">
+          <h3>Send a Message</h3>
+          <form action="mailto:lynne.castclinical@gmail.com" method="post" enctype="text/plain">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(705) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="contactPref">Preferred Contact Method</label>
+              <select id="contactPref" name="contactPref">
+                <option value="">Select an option</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="either">Either</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="lookingFor">What Are You Looking For?</label>
+              <select id="lookingFor" name="lookingFor">
+                <option value="">Select a service</option>
+                <option value="counselling">Individual Counselling</option>
+                <option value="assessment">Assessment</option>
+                <option value="coaching">Executive Coaching</option>
+                <option value="nihb">NIHB / Indigenous Services</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for…"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" width="26" height="26" aria-hidden="true" style="flex-shrink:0">
+          <defs>
+            <linearGradient id="footer-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#2A9CC8"/>
+              <stop offset="100%" stop-color="#0ECFCF"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="32" height="32" rx="7" ry="7" transform="rotate(45 20 20)" fill="url(#footer-grad)"/>
+          <rect x="7.5" y="7.5" width="25" height="25" rx="5.5" ry="5.5" transform="rotate(45 20 20)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+          <path d="M24.5 13.5 A8 8 0 1 0 24.5 26.5" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </svg>
+        Cast Clinical Services
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="assessments.html">Assessments</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Cast Clinical Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

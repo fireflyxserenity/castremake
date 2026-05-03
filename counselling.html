@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Individual Counselling — Cast Clinical Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" width="32" height="32" aria-hidden="true" style="flex-shrink:0">
+        <defs><linearGradient id="ng" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2A9CC8"/><stop offset="100%" stop-color="#0ECFCF"/></linearGradient></defs>
+        <rect x="4" y="4" width="32" height="32" rx="7" ry="7" transform="rotate(45 20 20)" fill="url(#ng)"/>
+        <rect x="7.5" y="7.5" width="25" height="25" rx="5.5" ry="5.5" transform="rotate(45 20 20)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+        <path d="M24.5 13.5 A8 8 0 1 0 24.5 26.5" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+      Cast Clinical Services
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="assessments.html">Assessments</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <span class="icon" id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <a href="contact.html" class="btn-book">Book Now</a>
+      <a href="SelfAssessment/index.html" class="btn-self-assess" title="Take a Self Assessment">
+        <span>✦</span><span>Self Assessment</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Counselling Services</span>
+      <h1>Individual Counselling</h1>
+      <p>Take the first step toward healing. Complete our short intake form below and we'll be in touch to get you started.</p>
+    </div>
+  </div>
+
+  <!-- SUB-NAV -->
+  <div class="sub-nav">
+    <div class="sub-nav-inner">
+      <a href="#intake">Intake Form</a>
+      <a href="#waitlist">Waitlist Info</a>
+      <a href="#workshops">Digital Workshops</a>
+    </div>
+  </div>
+
+  <!-- INTAKE FORM -->
+  <section class="detail-section" id="intake">
+    <div class="container">
+      <div class="detail-grid">
+
+        <!-- Info -->
+        <div class="fade-up">
+          <div class="detail-icon-lg">🧠</div>
+          <span class="section-label">Begin Your Journey</span>
+          <h2 class="section-title">Short Intake Form</h2>
+          <p class="detail-body">
+            Completing this form takes about two minutes and helps us understand what you're looking for before your first conversation. It also adds you to our waitlist — we'll reach out as soon as a spot opens up.
+          </p>
+          <p class="detail-body">
+            All information is confidential. You are under no obligation to continue after submitting this form.
+          </p>
+
+          <div class="info-card highlight" style="margin-top:1.5rem;">
+            <h4>What Happens Next</h4>
+            <ul class="bullet-list">
+              <li>We review your intake form within 1–2 business days</li>
+              <li>We reach out by your preferred contact method</li>
+              <li>We discuss your situation and schedule your first session</li>
+              <li>Virtual sessions can often begin sooner than in-person</li>
+            </ul>
+          </div>
+          <div class="info-card" style="margin-top:1rem;">
+            <h4>Questions Before You Submit?</h4>
+            <p>Call us at <a href="tel:7052625978" style="color:var(--accent);font-weight:500;">(705) 262-5978</a> or email <a href="mailto:lynne.castclinical@gmail.com" style="color:var(--accent);font-weight:500;">lynne.castclinical@gmail.com</a> and we're happy to chat before you commit to anything.</p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form fade-up">
+          <h3>Tell Us a Little About Yourself</h3>
+          <form action="mailto:lynne.castclinical@gmail.com" method="post" enctype="text/plain">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(705) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="contactPref">Preferred Contact Method</label>
+              <select id="contactPref" name="contactPref">
+                <option value="">Select an option</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="either">Either</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sessionType">Are you looking for virtual or in-person? *</label>
+              <select id="sessionType" name="sessionType" required>
+                <option value="">Select a preference</option>
+                <option value="virtual">Virtual (video or telephone) — shorter waitlist</option>
+                <option value="in-person">In-Person (Northern Ontario) — longer waitlist</option>
+                <option value="hybrid">Hybrid — a mix of both</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="concern">What brings you here?</label>
+              <select id="concern" name="concern">
+                <option value="">Select the closest match</option>
+                <option value="trauma">Trauma or PTSD</option>
+                <option value="addiction">Addiction or substance use</option>
+                <option value="anxiety-depression">Anxiety or depression</option>
+                <option value="grief">Grief or loss</option>
+                <option value="relationships">Relationship or family difficulties</option>
+                <option value="general">General wellbeing or personal growth</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Anything else you'd like us to know? (optional)</label>
+              <textarea id="message" name="message" placeholder="Share as much or as little as you're comfortable with…"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Intake Form &amp; Join Waitlist</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST INFO -->
+  <section class="detail-section alt" id="waitlist">
+    <div class="container">
+      <div style="max-width:760px;margin:0 auto;" class="fade-up">
+        <span class="section-label">Waitlist</span>
+        <h2 class="section-title">What to Expect</h2>
+        <p class="section-body" style="max-width:100%;margin-bottom:2rem;">
+          We are committed to helping you access care as quickly as possible. Wait times depend on session type and current availability — here's what you can generally expect.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:760px;margin:0 auto 2rem;">
+        <div class="info-card highlight fade-up">
+          <h4>💻 Virtual Counselling</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem;">Shorter wait</p>
+          <p style="margin-top:0.75rem;">Virtual sessions — by video or telephone — typically have a shorter waitlist. If flexibility is important to you, virtual is often the fastest path to getting started.</p>
+        </div>
+        <div class="info-card fade-up">
+          <h4>🌳 In-Person Counselling</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-top:0.4rem;">Longer wait</p>
+          <p style="margin-top:0.75rem;">In-person sessions in Northern Ontario are available but have a longer waitlist due to limited scheduling windows. We recommend joining the waitlist early and considering virtual as a bridge.</p>
+        </div>
+      </div>
+      <div style="max-width:760px;margin:0 auto;" class="fade-up">
+        <div class="info-card">
+          <h4>While You Wait</h4>
+          <p>We understand that waiting is hard. While you're on the waitlist, consider exploring our <a href="#workshops" style="color:var(--accent);font-weight:500;">Digital Workshops &amp; Programs</a> — self-paced online tools that can offer support and skill-building between now and your first session.</p>
+          <p style="margin-top:0.75rem;">If your need is urgent, please call us directly at <a href="tel:7052625978" style="color:var(--accent);font-weight:500;">(705) 262-5978</a> so we can discuss the best next steps for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL WORKSHOPS -->
+  <section class="detail-section" id="workshops">
+    <div class="container">
+      <div class="detail-grid">
+        <div class="fade-up">
+          <div class="detail-icon-lg">🌐</div>
+          <span class="section-label">Online Programs</span>
+          <h2 class="section-title">Digital Workshops &amp; Programs</h2>
+          <p class="detail-body">
+            In addition to one-on-one counselling, Cast Clinical Services offers digital workshops and online programs designed to support healing in a flexible, self-paced format.
+          </p>
+          <p class="detail-body">
+            These programs are ideal for individuals on the waitlist, those who prefer a less intensive entry point, or anyone looking to build skills alongside their existing counselling sessions.
+          </p>
+          <p class="detail-body">
+            Topics may include trauma processing and recovery, stress and anxiety management, addiction and relapse prevention, grief and loss, and mindfulness-based wellbeing.
+          </p>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;">Ask About Programs</a>
+        </div>
+        <div class="fade-up">
+          <div class="info-card highlight">
+            <h4>Program Formats</h4>
+            <ul class="bullet-list">
+              <li>Self-paced online modules you complete at your own schedule</li>
+              <li>Small virtual group sessions with guided facilitation</li>
+              <li>Workbooks and resources sent directly to you</li>
+              <li>Available to waitlisted clients and current clients alike</li>
+            </ul>
+          </div>
+          <div class="info-card" style="margin-top:1rem;">
+            <h4>Get on the Mailing List</h4>
+            <p>Digital programs are offered on a rolling basis. Contact us to be added to the programs mailing list and we'll notify you when the next session opens up.</p>
+            <a href="contact.html" style="display:inline-block;margin-top:0.75rem;color:var(--accent);font-weight:600;font-size:0.9rem;">Contact us to register →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIHB STRIP -->
+  <div class="nihb-strip">
+    <h2>NIHB Registered Provider</h2>
+    <p>Counselling is available with or without Non-Insured Health Benefits (NIHB) coverage. Assessments for Indigenous and Métis individuals are offered free of charge.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" width="26" height="26" aria-hidden="true" style="flex-shrink:0">
+          <defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2A9CC8"/><stop offset="100%" stop-color="#0ECFCF"/></linearGradient></defs>
+          <rect x="4" y="4" width="32" height="32" rx="7" ry="7" transform="rotate(45 20 20)" fill="url(#fg)"/>
+          <rect x="7.5" y="7.5" width="25" height="25" rx="5.5" ry="5.5" transform="rotate(45 20 20)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+          <path d="M24.5 13.5 A8 8 0 1 0 24.5 26.5" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </svg>
+        Cast Clinical Services
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="assessments.html">Assessments</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Cast Clinical Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
