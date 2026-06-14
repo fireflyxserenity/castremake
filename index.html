@@ -342,7 +342,7 @@
     .hero-nature-img {
       border-radius: var(--radius);
       overflow: hidden;
-      height: 108px;
+      height: 260px;
       margin-bottom: 0.75rem;
       box-shadow: 0 2px 14px rgba(0,0,0,0.10);
     }
@@ -350,7 +350,26 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.88;
+      opacity: 0.96;
+    }
+    .hero-getaway {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .hero-getaway img {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 14px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+    .hero-getaway p {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--muted);
+      font-weight: 300;
     }
     /* ── Welcome Nature Thumb ── */
     .welcome-nature-thumb {
@@ -613,7 +632,7 @@
     .nature-quote {
       font-family: 'Lora', serif;
       font-style: italic;
-      font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+      font-size: clamp(0.98rem, 1.7vw, 1.18rem);
       line-height: 1.7;
       opacity: 0.96;
       margin-bottom: 1.5rem;
@@ -958,6 +977,10 @@
           <img src="images/office-1.jpg" alt="Cast Clinical's in-person office space" loading="lazy" />
         </div>
         <div class="hero-card">
+          <div class="hero-getaway">
+            <img src="images/marmotte.jpg" alt="A marmot that visits near the office" loading="lazy" />
+            <p>A private space just minutes from town. Close enough to reach with ease, tucked away enough to feel like getting away from it all. Room to breathe, and to heal.</p>
+          </div>
           <div class="hero-service-tags">
             <span>Counselling</span>
             <span>Assessments</span>
