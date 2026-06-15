@@ -771,6 +771,16 @@ footer {
   .sub-nav { padding: 0 1.25rem; }
 }
 
+/* ── Two-column bullet list (balances tall lists) ── */
+.two-col-list {
+  column-count: 2;
+  column-gap: 1.6rem;
+}
+.two-col-list li { break-inside: avoid; }
+@media (max-width: 560px) {
+  .two-col-list { column-count: 1; }
+}
+
 /* ── Office Gallery (small, secondary) ── */
 .office-gallery {
   display: grid;
